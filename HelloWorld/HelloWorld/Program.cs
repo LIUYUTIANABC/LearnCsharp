@@ -68,6 +68,8 @@ namespace HelloWorld
                 Console.WriteLine(s1);
             }
 
+            User us = new User("张三", "1333", "1313");
+            us.PrintMsg();
             Test t1 = new Test();
             // t1.PrintMsg();
             // Compute c1 = new Compute();

@@ -11,10 +11,12 @@ namespace HelloWorld
         private static string name;
         private static double price;
 
+        // 定义属性
         public static int Id { get => id; set => id = value; }
         public static string Name { get => name; set => name = value; }
         public static double Price { get => price; set => price = value; }
 
+        // 定义方法
         // set book
         public static void SetBook(int id, string name, double price)
         {
