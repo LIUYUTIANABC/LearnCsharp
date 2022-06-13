@@ -14,17 +14,14 @@ namespace HelloWorld
             string s1 = "我爱中国";
             bool choose = true;
 
-            Console.WriteLine("请输入一个数：");
+        login:
+            Console.WriteLine("请输入一个密码：");
             string sTemp = Console.ReadLine();
             int point = int.Parse(sTemp);
-            Console.WriteLine(sTemp);
-
-        // goto login;
 
             int sum = 0;
             for (int i = 1; i <= point; i++)
             {
-                Console.WriteLine("for is " + i);
                 sum += i;
             }
             Console.WriteLine("sum = " + sum);
@@ -32,23 +29,23 @@ namespace HelloWorld
             switch (point)
             {
                 case 8:
-                    Console.WriteLine("switch is 8!");
+                    Console.WriteLine("Password switch is 8!");
                     break;
                 case 9:
-                    Console.WriteLine("switch is 9!");
+                    Console.WriteLine("Password switch is 9!");
                     break;
                 case 10:
-                    Console.WriteLine("switch is 10!");
+                    Console.WriteLine("Password switch is 10!");
                     break;
                 case 11:
-                    Console.WriteLine("switch is 11!");
+                    Console.WriteLine("Password switch is 11!");
                     break;
                 default:
-                    Console.WriteLine("switch is default!");
+                    Console.WriteLine("Password switch is error!");
+                    goto login;
                     break;
             }
 
-        login:
             if (point < 10)
             {
                 Console.WriteLine(a);
@@ -88,6 +85,37 @@ namespace HelloWorld
             Book1.SetBook(4, "C#编程", 50.5);
             Book1.PrintMsg();
 
+            SumUtils su = new SumUtils();
+            Console.WriteLine("两个整数的和：" + su.Sum(3, 5));
+            Console.WriteLine("两个小数的和：" + su.Sum(3.2, 5.5));
+            Console.WriteLine("两个字符串的和：" + su.Sum("C#", "方法重载"));
+            Console.WriteLine("从 1 到 10 的和：" + su.Sum(10));
+
+            SumUtils su1 = new SumUtils();
+            SumUtils su2 = new SumUtils("小明");
+            SumUtils su3 = new SumUtils("张三", 18);
+            
+            RefOutClass ro = new RefOutClass();
+
+            Console.WriteLine("Lambda 表达式：" + LambdaClass.Add(100, 200));
+            Console.WriteLine("Lambda 表达式：" + LambdaClass.Add("string", 200));
+
+            Console.WriteLine("static 5 的阶乘：" + FactorialClass.Factorial(5));
+            FactorialClass fc = new FactorialClass();
+            fc.FactorialA(5);
+
+            OuterClass.InnerClass.Diaplay();
+            OuterClass.InnerClass ic = new OuterClass.InnerClass();
+            ic.CardId = "10102";
+            ic.Password = "123456";
+            ic.PrintMsg();
+
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("---- 新的调试内容----");
+
+            Course co = new Course();
+            co.PrintMsg();
         }
     }
 }
