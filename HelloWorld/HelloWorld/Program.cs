@@ -221,7 +221,8 @@ namespace HelloWorld
             Console.WriteLine();
             Console.WriteLine("----------------- 调试 字符串长度 string.Length -----------------");
 
-            string stl = Console.ReadLine();
+            // string stl = Console.ReadLine();
+            string stl = "AbcdEFgh";
             Console.WriteLine("字符串长度：" + stl.Length);
             Console.WriteLine("字符串第一个字符：" + stl[0]);
             Console.WriteLine("字符串最后一个字符：" + stl[stl.Length - 1]);
@@ -239,7 +240,75 @@ namespace HelloWorld
             Console.WriteLine();
 
             Console.WriteLine();
-            Console.WriteLine("----------------- 调试 字符串长度 string.Length -----------------");
+            Console.WriteLine("----------------- 调试 查找字符串中的字符 -----------------");
+
+            // string sti = Console.ReadLine();
+            string sti = "1428585@qq.com";
+            Console.WriteLine("要查找的字符串是：" + sti);
+            if (sti.IndexOf("@") != -1)
+            {
+                Console.WriteLine("字符串中含有@，其出现的位置是{0}", sti.IndexOf("@") + 1);
+            }
+            else
+            {
+                Console.WriteLine("字符串中不含有@");
+            }
+            int firstIndex = sti.IndexOf("@");
+            int lastIndex = sti.LastIndexOf("@");
+            if (firstIndex != -1)
+            {
+                if (firstIndex == lastIndex)
+                {
+                    Console.WriteLine("在该字符串中仅含有一个@");
+                }
+                else
+                {
+                    Console.WriteLine("在该字符串中含有多个@");
+                }
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("----------------- 调试 字符串替换 -----------------");
+
+            // string str = Console.ReadLine();
+            string str = "aaa,bbb,ccc";
+            Console.WriteLine("把字符串','替换为'_'：" + str);
+            if (str.IndexOf(",") != -1)
+            {
+                str = str.Replace(",", "_");
+
+            }
+            Console.WriteLine("替换后的字符串：" + str);
+
+            Console.WriteLine();
+            Console.WriteLine("----------------- 调试 字符串截取 -----------------");
+
+            // string sts = Console.ReadLine();
+            string sts = "123456789aa@qq.com";
+            Console.WriteLine("输入邮箱，截取邮箱名：" + sts);
+            firstIndex = sts.IndexOf("@");
+            lastIndex = sts.LastIndexOf("@");
+            if (firstIndex != -1 && firstIndex == lastIndex)
+            {
+                sts = sts.Substring(0, firstIndex);
+            }
+            Console.WriteLine("替换后的字符串：" + sts);
+
+            Console.WriteLine();
+            Console.WriteLine("----------------- 调试 字符串插入 -----------------");
+
+            sti = "aaaacccc";
+            Console.WriteLine("在4的位置插入bbbb：" + sti);
+            sti = sti.Insert(4, "bbbb");
+            Console.WriteLine("替换后的字符串：" + sti);
+
+            Console.WriteLine();
+            Console.WriteLine("----------------- 调试 隐式数据类型转换 -----------------");
+
+            int aConvert = 10;
+            double bConvert = aConvert;
+            float cConvert = 1.2f;
+            bConvert = cConvert;
 
         }
     }
