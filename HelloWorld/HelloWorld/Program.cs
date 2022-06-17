@@ -184,7 +184,7 @@ namespace HelloWorld
             Random rd = new Random();
             Console.WriteLine("产生一个随机数：{0}", rd.Next());
             Console.WriteLine("产生一个10以内的随机数：{0}", rd.Next(10));
-            Console.WriteLine("产生5 - 20之间的随机数：{0}", rd.Next(5,20));
+            Console.WriteLine("产生5 - 20之间的随机数：{0}", rd.Next(5, 20));
             Console.WriteLine("产生1.0-1.0的浮点数：{0,3}", rd.NextDouble());
             byte[] rdb = new byte[5];
             rd.NextBytes(rdb);
@@ -211,7 +211,7 @@ namespace HelloWorld
             Console.WriteLine("当前是本年度第 {0} 天", dt.DayOfYear);
             Console.WriteLine("30 天后的日期是 {0}", dt.AddDays(30));
 
-            TimeSpan ts = new TimeSpan(6,12,56,45,23);
+            TimeSpan ts = new TimeSpan(6, 12, 56, 45, 23);
             Console.WriteLine("使用 Add(TimeSpan) {0}", dt.Add(ts));
 
             DateTime dt1 = new DateTime(2023, 1, 15);
@@ -309,6 +309,43 @@ namespace HelloWorld
             double bConvert = aConvert;
             float cConvert = 1.2f;
             bConvert = cConvert;
+
+            Console.WriteLine();
+            Console.WriteLine("----------------- 调试 强制数据类型转换 -----------------");
+
+            double dbl_num = 11234567.123;
+            int int_num = (int)dbl_num;
+            Console.WriteLine("double 型 '{0}' 强制转换为 int 型 '{1}'", dbl_num, int_num);
+
+            Console.WriteLine();
+            Console.WriteLine("----------------- 调试 字符串类型转换 Parse -----------------");
+
+            int p_num1 = int.Parse("123");
+            double p_num2 = double.Parse("123.456");
+            bool p_num3 = bool.Parse("true");
+            Console.WriteLine("字符串转任意类型 '{0}' '{1}' '{2}'", p_num1, p_num2, p_num3);
+
+            Console.WriteLine();
+            Console.WriteLine("----------------- 调试 数据类型转换 Convert -----------------");
+
+            float c_num1 = 82.53f;
+            int integer;
+            string c_string;
+            integer = Convert.ToInt32(c_num1);
+            c_string = Convert.ToString(c_num1);
+            Console.WriteLine("数据类型转换 Convert '{0}' '{1}' '{2}'", c_num1, integer, c_string);
+
+            Console.WriteLine();
+            Console.WriteLine("----------------- 调试 装箱和拆箱 -----------------");
+
+            int o_a = 100;
+            string o_str = o_a.ToString();    // 装箱
+            o_a = int.Parse(o_str);           // 拆箱
+
+            object obj = o_a;
+            Console.WriteLine("装箱：对象的值 = {0}", obj);
+            o_a = (int)obj;
+            Console.WriteLine("拆箱：值类型的值 = {0}", o_a);
 
         }
     }
