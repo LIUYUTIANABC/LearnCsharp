@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 
 namespace HelloWorld
 {
@@ -347,6 +348,20 @@ namespace HelloWorld
             o_a = (int)obj;
             Console.WriteLine("拆箱：值类型的值 = {0}", o_a);
 
+            Console.WriteLine();
+            Console.WriteLine("----------------- 调试 正则表达式 -----------------");
+
+            // string email = "123456@qq.com";
+            string email = Console.ReadLine() ;
+            Regex regex = new Regex(@"^(\w)+(\.\w)*@(\w)+((\.\w+)+)$");
+            if (regex.IsMatch(email))
+            {
+                Console.WriteLine("邮箱格式正确。");
+            }
+            else
+            {
+                Console.WriteLine("邮箱格式不正确。");
+            }
         }
     }
 }
