@@ -351,8 +351,8 @@ namespace HelloWorld
             Console.WriteLine();
             Console.WriteLine("----------------- 调试 正则表达式 -----------------");
 
-            // string email = "123456@qq.com";
-            string email = Console.ReadLine() ;
+            string email = "123456@qq.com";
+            // string email = Console.ReadLine();
             Regex regex = new Regex(@"^(\w)+(\.\w)*@(\w)+((\.\w+)+)$");
             if (regex.IsMatch(email))
             {
@@ -362,6 +362,100 @@ namespace HelloWorld
             {
                 Console.WriteLine("邮箱格式不正确。");
             }
+
+            Console.WriteLine();
+            Console.WriteLine("----------------- 调试 一维数组 -----------------");
+
+            int[] arr = {1,2,3};
+            Console.WriteLine("数组长度：" + arr.Length);
+            Console.WriteLine("数组第一位：" + arr[0]);
+            Console.WriteLine("数组最后一位：" + arr[arr.Length - 1]);
+            string[] str_arr = new string[3];
+            str_arr[1] = "bbb";
+            foreach (string i in str_arr)
+            {
+                Console.Write("{0}     ", i);
+            }
+            Console.WriteLine();
+            double[] dou_arr = new double[2] { 11.1, 12.2 };
+            Console.Write("{0}     {1}", dou_arr[0], dou_arr[1]);
+            Console.WriteLine();
+            // dou_arr[0] = double.Parse(Console.ReadLine());
+            dou_arr[0] = double.Parse("222.34");
+            Console.Write("{0}     {1}", dou_arr[0], dou_arr[1]);
+            Console.WriteLine();
+
+            Console.WriteLine();
+            Console.WriteLine("----------------- 调试 多维数组 -----------------");
+
+            double[,] points = { {90,80},{100,89},{88.5,86} };
+            for (int i = 0; i < points.GetLength(0); i++)
+            {
+                Console.WriteLine("第" + (i+1) + "个学生成绩：");
+                for (int j = 0; j < points.GetLength(1); j++)
+                {
+                    Console.Write(points[i,j] + "   ");
+                }
+                Console.WriteLine();
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("----------------- 调试 锯齿形数组 -----------------");
+
+            int[][] array1 = new int[3][];
+            // array1[0] = new int[] {1,2};
+            // array1[1] = new int[] {3,4,5};
+            // array1[2] = new int[] {6,7,8,9};.
+            array1[0] = new int[3];
+            array1[1] = new int[2]; 
+            array1[2] = new int[4]; 
+            for (int i = 0; i < array1.Length; i++)
+            {
+                Console.WriteLine("第 {0} 维数组元素如下：",i);
+                for (int j = 0; j < array1[i].Length; j++)
+                {
+                    // array1[i][j] = int.Parse(Console.ReadLine());
+                    array1[i][j] = i + j;
+                    Console.WriteLine("第 {0} 列数据为： {1}", j, array1[i][j]);
+                }
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("----------------- 调试 foreach 循环 -----------------");
+
+            double[] dou_foreach = {80.5,81.5,90,100.5,88};
+            double sum_foreach = 0;
+            double avg_foreach = 0;
+            foreach (double point_for in dou_foreach)
+            {
+                sum_foreach += point_for;
+            }
+            avg_foreach = sum_foreach / dou_foreach.Length;
+            Console.WriteLine("总成绩为：{0} \n平均值为：{1}", sum_foreach,avg_foreach);
+
+            Console.WriteLine();
+            Console.WriteLine("----------------- 调试 Split 将字符串拆分成数组 -----------------");
+
+            string str_split = "abc,def,ghs,ijksrt";
+            string[] condition = {",","s"};
+            string[] result = str_split.Split(condition, StringSplitOptions.None);
+            foreach (string str_sp in result)
+            {
+                Console.WriteLine(str_sp);
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("----------------- 调试 冒泡排序 -----------------");
+
+            int[] arr_sort = {5,1,7,8,3,15};
+            for (int i = 0; i < arr_sort.Length; i++)
+            {
+                for (int j = 0; j < arr_sort.Length - i -1; j++)
+                {
+
+                }
+            }
+
         }
     }
 }
