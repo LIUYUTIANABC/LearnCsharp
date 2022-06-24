@@ -366,7 +366,7 @@ namespace HelloWorld
             Console.WriteLine();
             Console.WriteLine("----------------- 调试 一维数组 -----------------");
 
-            int[] arr = {1,2,3};
+            int[] arr = { 1, 2, 3 };
             Console.WriteLine("数组长度：" + arr.Length);
             Console.WriteLine("数组第一位：" + arr[0]);
             Console.WriteLine("数组最后一位：" + arr[arr.Length - 1]);
@@ -388,13 +388,13 @@ namespace HelloWorld
             Console.WriteLine();
             Console.WriteLine("----------------- 调试 多维数组 -----------------");
 
-            double[,] points = { {90,80},{100,89},{88.5,86} };
+            double[,] points = { { 90, 80 }, { 100, 89 }, { 88.5, 86 } };
             for (int i = 0; i < points.GetLength(0); i++)
             {
-                Console.WriteLine("第" + (i+1) + "个学生成绩：");
+                Console.WriteLine("第" + (i + 1) + "个学生成绩：");
                 for (int j = 0; j < points.GetLength(1); j++)
                 {
-                    Console.Write(points[i,j] + "   ");
+                    Console.Write(points[i, j] + "   ");
                 }
                 Console.WriteLine();
             }
@@ -407,11 +407,11 @@ namespace HelloWorld
             // array1[1] = new int[] {3,4,5};
             // array1[2] = new int[] {6,7,8,9};.
             array1[0] = new int[3];
-            array1[1] = new int[2]; 
-            array1[2] = new int[4]; 
+            array1[1] = new int[2];
+            array1[2] = new int[4];
             for (int i = 0; i < array1.Length; i++)
             {
-                Console.WriteLine("第 {0} 维数组元素如下：",i);
+                Console.WriteLine("第 {0} 维数组元素如下：", i);
                 for (int j = 0; j < array1[i].Length; j++)
                 {
                     // array1[i][j] = int.Parse(Console.ReadLine());
@@ -423,7 +423,7 @@ namespace HelloWorld
             Console.WriteLine();
             Console.WriteLine("----------------- 调试 foreach 循环 -----------------");
 
-            double[] dou_foreach = {80.5,81.5,90,100.5,88};
+            double[] dou_foreach = { 80.5, 81.5, 90, 100.5, 88 };
             double sum_foreach = 0;
             double avg_foreach = 0;
             foreach (double point_for in dou_foreach)
@@ -431,13 +431,13 @@ namespace HelloWorld
                 sum_foreach += point_for;
             }
             avg_foreach = sum_foreach / dou_foreach.Length;
-            Console.WriteLine("总成绩为：{0} \n平均值为：{1}", sum_foreach,avg_foreach);
+            Console.WriteLine("总成绩为：{0} \n平均值为：{1}", sum_foreach, avg_foreach);
 
             Console.WriteLine();
             Console.WriteLine("----------------- 调试 Split 将字符串拆分成数组 -----------------");
 
             string str_split = "abc,def,ghs,ijksrt";
-            string[] condition = {",","s"};
+            string[] condition = { ",", "s" };
             string[] result = str_split.Split(condition, StringSplitOptions.None);
             foreach (string str_sp in result)
             {
@@ -447,14 +447,54 @@ namespace HelloWorld
             Console.WriteLine();
             Console.WriteLine("----------------- 调试 冒泡排序 -----------------");
 
-            int[] arr_sort = {5,1,7,8,3,15};
+            int[] arr_sort = { 5, 1, 7, 8, 3, 15 };
             for (int i = 0; i < arr_sort.Length; i++)
             {
-                for (int j = 0; j < arr_sort.Length - i -1; j++)
+                for (int j = 0; j < arr_sort.Length - i - 1; j++)
                 {
-
+                    if (arr_sort[j] < arr_sort[j + 1])
+                    {
+                        int temp_s = arr_sort[j];
+                        arr_sort[j] = arr_sort[j + 1];
+                        arr_sort[j + 1] = temp_s;
+                    }
                 }
             }
+            Console.WriteLine("降序排序后的结果为：");
+            foreach (int i in arr_sort)
+            {
+                Console.Write(i + " ");
+            }
+            Console.WriteLine();
+
+            Console.WriteLine();
+            Console.WriteLine("----------------- 调试 System.Array 数组基类方法 -----------------");
+
+            Console.WriteLine("调用 Array.Sort(arr) 从小到大排列数组元素:");
+            Array.Sort(arr_sort);
+            foreach (int i in arr_sort)
+            {
+                Console.Write(i + " ");
+            }
+            Console.WriteLine();
+            Console.WriteLine("调用 Array.Reverse(arr) 逆序排列:");
+            Array.Reverse(arr_sort);
+            foreach (int i in arr_sort)
+            {
+                Console.Write(i + " ");
+            }
+            Console.WriteLine();
+            Console.WriteLine("调用 Array.Clear(arr) 清空数组:");
+            Array.Clear(arr_sort, 2, 3);
+            foreach (int i in arr_sort)
+            {
+                Console.Write(i + " ");
+            }
+            Console.WriteLine();
+            Console.WriteLine("调用 Array.Indexof() 查找数组元素:");
+            Console.WriteLine("数据第一次出现在数组第几位：" + Array.IndexOf(arr_sort, 0));
+            Console.WriteLine("调用 Array.LastIndexof() 查找数组元素:");
+            Console.WriteLine("数据最后一次出现在数组第几位：" + Array.LastIndexOf(arr_sort, 0));
 
         }
     }
