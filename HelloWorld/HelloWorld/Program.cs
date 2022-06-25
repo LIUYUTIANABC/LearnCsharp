@@ -496,6 +496,13 @@ namespace HelloWorld
             Console.WriteLine("调用 Array.LastIndexof() 查找数组元素:");
             Console.WriteLine("数据最后一次出现在数组第几位：" + Array.LastIndexOf(arr_sort, 0));
 
+            Console.WriteLine();
+            Console.WriteLine("----------------- 调试 Enum 枚举类型 -----------------");
+
+            Console.WriteLine("Enum " + EnumTest.Title.助教 + ": " + (int)EnumTest.Title.助教);
+            Console.WriteLine("Enum " + EnumTest.Title.讲师 + ": " + (int)EnumTest.Title.讲师);
+            Console.WriteLine("Enum " + EnumTest.Title.副教授 + ": " + (int)EnumTest.Title.副教授);
+            Console.WriteLine("Enum " + EnumTest.Title.教授 + ": " + (int)EnumTest.Title.教授);
         }
     }
 }
