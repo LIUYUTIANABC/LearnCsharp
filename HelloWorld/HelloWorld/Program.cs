@@ -503,6 +503,108 @@ namespace HelloWorld
             Console.WriteLine("Enum " + EnumTest.Title.讲师 + ": " + (int)EnumTest.Title.讲师);
             Console.WriteLine("Enum " + EnumTest.Title.副教授 + ": " + (int)EnumTest.Title.副教授);
             Console.WriteLine("Enum " + EnumTest.Title.教授 + ": " + (int)EnumTest.Title.教授);
+
+            Console.WriteLine();
+            Console.WriteLine("----------------- 调试 struct 结构体类型 -----------------");
+
+            student struct_stu = new student();
+            struct_stu.Name = "张三";
+            struct_stu.Age = -18;
+            Console.WriteLine("结构体构造器，姓名：" + struct_stu.Name);
+            Console.WriteLine("结构体构造器，年龄：" + struct_stu.Age);
+
+            struct_stu = new student("李四", 25);
+            Console.WriteLine("下面是使用结构体构造函数：");
+            struct_stu.PrintStudent();
+
+            Console.WriteLine();
+            Console.WriteLine("----------------- 调试 Object 类 Equals 方法 -----------------");
+
+            bool e_flag = Equals(struct_stu, struct_stu);
+            Console.WriteLine("比较结构体：" + e_flag);
+            Console.WriteLine("比较类：" + struct_stu.Equals(fc));
+
+            Console.WriteLine();
+            Console.WriteLine("----------------- 调试 Object 类 GetHashCode 方法 -----------------");
+
+            Console.WriteLine("获得一个类的 Hash 值：" + su.GetHashCode());
+            Console.WriteLine("获得一个类的 Hash 值：" + fc.GetHashCode());
+
+            Console.WriteLine();
+            Console.WriteLine("----------------- 调试 Object 类 GetType 方法 -----------------");
+
+            Console.WriteLine("查看整型：" + a.GetType());
+            Console.WriteLine("查看字符型：" + str.GetType());
+            Console.WriteLine("查看字符型：" + su.GetType());
+
+            Console.WriteLine();
+            Console.WriteLine("----------------- 调试 Object 类 ToString 方法 -----------------");
+
+            Console.WriteLine("值类型（int）的字符串表现形式：" + a.ToString());
+            Console.WriteLine("字符串的字符串表现形式：" + str.ToString());
+            Console.WriteLine("引用类型的字符串表现形式：" + su.ToString());
+            Console.WriteLine("结构体的字符串表现形式：" + struct_stu.ToString());
+
+            Console.WriteLine();
+            Console.WriteLine("----------------- 调试 类图的使用 -----------------");
+
+            Console.WriteLine("继承 Person 类的 Student； Print 方法被覆盖");
+            Student In_Stu = new Student();
+            In_Stu.Print();
+            Console.WriteLine("继承 Person 类的 Teacher； Print 方法被覆盖");
+            Teacher In_Tea = new Teacher();
+            In_Tea.Print();
+            Console.WriteLine("父类 Person； Print 方法");
+            Person In_Per = new Person();
+            In_Per.Print();
+
+        }
+    }
+
+    public struct student
+    {
+        // 定义字段
+        private string name;
+        private int age;
+        // 定义属性
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                name = value;
+            }
+        }
+        public int Age
+        {
+            get
+            {
+                return age;
+            }
+            set
+            {
+                if (value < 0)
+                {
+                    value = 0;
+                }
+                else
+                {
+                    age = value;
+                }
+            }
+        }
+        public student(string name, int age)
+        {
+            this.name = name;
+            this.age = age;
+        }
+        public void PrintStudent()
+        {
+            Console.WriteLine("结构体方法，姓名：" + name);
+            Console.WriteLine("结构体方法，年龄：" + age);
         }
     }
 }
