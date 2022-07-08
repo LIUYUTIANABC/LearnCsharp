@@ -551,7 +551,7 @@ namespace HelloWorld
             Console.WriteLine("继承 Person 类的 Student； Print 方法被覆盖");
             Student In_Stu = new Student();
             In_Stu.Print();
-            Console.WriteLine("继承 Person 类的 Teacher； Print 方法被覆盖");
+            Console.WriteLine("继承 Person 类的 Teacher； Print 中包含父类方法");
             Teacher In_Tea = new Teacher();
             In_Tea.Print();
             Console.WriteLine("父类 Person； Print 方法");

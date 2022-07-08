@@ -9,7 +9,7 @@ namespace HelloWorld
         public string Major { get; set; }
         public string Grade { get; set; }
 
-        public void Print()
+        public new void Print()
         {
             Console.WriteLine("专业：" + Major);
             Console.WriteLine("年级：" + Grade);
