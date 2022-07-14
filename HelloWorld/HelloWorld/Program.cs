@@ -548,6 +548,11 @@ namespace HelloWorld
             Console.WriteLine();
             Console.WriteLine("----------------- 调试 类图的使用 -----------------");
 
+            Console.WriteLine("请查看 InheritanceDiagram.cd");
+
+            Console.WriteLine();
+            Console.WriteLine("----------------- 调试 base 使用 -----------------");
+
             Console.WriteLine("继承 Person 类的 Student； Print 方法被覆盖");
             Student In_Stu = new Student();
             In_Stu.Print();
@@ -558,6 +563,15 @@ namespace HelloWorld
             Person In_Per = new Person();
             In_Per.Print();
 
+            Console.WriteLine();
+            Console.WriteLine("----------------- 调试 virtual 使用 -----------------");
+
+            int In_vir_t = In_Per.Area(4,5);
+            Console.WriteLine("父类的虚方法返回值：" + In_vir_t);
+            In_vir_t = In_Tea.Area(4,5);
+            Console.WriteLine("子类重载父类虚方法返回值：" + In_vir_t);
+            Console.WriteLine("重写类中 ToString() 方法");
+            Console.WriteLine(In_Tea.ToString());
         }
     }
 

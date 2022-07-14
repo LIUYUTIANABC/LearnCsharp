@@ -842,5 +842,79 @@ C# 默认类中的成员都是非虚拟的；如果定义虚拟的成员（字�
 
 - 虚方法就是为重写而生的
 - virtual 关键字能修饰方法、属性、索引器、事件等，在父类中定义；
+- 重载、隐藏、重写是不一样的几种情况
 
+```
+//修饰属性
+public  virtual  数据类型  属性名{get; set; }
 
+//修饰方法
+访问修饰符  virtual  返回值类型方法名
+{
+    语句块；
+}
+```
+
+注意：
+
+- virtual 关键字不能修饰使用 static 修饰的成员
+- virtual 可以放到访问修饰符前面，但习惯放到访问修饰符后面
+- 子类继承父类，重写父类中的成员，使用关键字 override
+- 重写：指子类和父类成员定义一致，仅在子类中增加 override 关键字修饰成员
+  - 注意：方法定义不能改变，包括参数类型，返回值类型等
+
+#### 方法隐藏和方法重写的区别
+
+```
+class Program
+{
+    static void Main(string[] args)
+    {
+        A a1 = new B();
+        a1.Print();
+        A a2 = new C();
+        a2.Print();
+    }
+}
+class A
+{
+    public virtual void Print()
+    {
+        Console.WriteLine("A");
+    }
+}
+class B :A
+{
+    public new void Print()
+    {
+        Console.WriteLine("B");
+    }
+}
+class C :A
+{
+    public override void Print()
+    {
+        Console.WriteLine("C");
+    }
+}
+
+输出：
+A
+C
+请按任意键继续...
+```
+
+- 因此方法隐藏相当于在子类中定义新方法，而方法重写则是重新定义父类中方法的内容。
+
+```
+// 父类强制转换为子类：
+A a2=new C();
+C c=(C) a2;
+c.Print();
+
+// 父类强制转换为子类：
+A a1 = new B();
+a1.Print();
+A a2 = new C();
+a2.Print();
+```
