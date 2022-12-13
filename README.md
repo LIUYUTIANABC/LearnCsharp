@@ -3,18 +3,16 @@
 ## Document
 
 - 学习 C# 笔记
-- 注意：这个学习文档终止了；因为，参考网址的网页内容变了，不是之前的内容
-  - 所以，跟别的学习教程，在 MyApp 文件夹使用 VSCode 做开发
-
-参考网址：
-
-- http://c.biancheng.net/csharp/
+  - 参考网址： http://c.biancheng.net/csharp/
+- C#从入门到精通
+  - 参考网址：https://www.bilibili.com/video/BV1EK4y1b7ux?p=5
+  - 使用 VS 开发
 
 ## HelloWorld
 
 学习 C# 中的例程，源代码，使用 Visual Studio 2019 开发
 
-- 注意：这个源代码添加也终止了；因为，这个源代码跟随上面网址来的
+- 注意：这个源代码添加终止了；因为，这个源代码跟随上面网址来的，网址变更，内容不对应了
 - 这些代码可供参考
 
 ## MyApp
@@ -25,3 +23,8 @@
 - 1、安装 .NetCore SDK 开发包
   - 下载网址：https://dotnet.microsoft.com/en-us/download
   - CMD 创建 Hello World 程序：https://dotnet.microsoft.com/en-us/learn/dotnet/hello-world-tutorial/intro?sdk-installed=true
+使用控制台（console），创建的 C# 编程代码
+
+## Projects
+
+- C#从入门到精通 的程序源码
