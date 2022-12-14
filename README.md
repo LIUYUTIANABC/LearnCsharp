@@ -5,6 +5,7 @@
 - 学习 C# 笔记
   - 参考网址： http://c.biancheng.net/csharp/
 - C#从入门到精通
+  - 快速预览，作用是：补漏，扫盲
   - 参考网址：https://www.bilibili.com/video/BV1EK4y1b7ux?p=5
   - 使用 VS 开发
 
