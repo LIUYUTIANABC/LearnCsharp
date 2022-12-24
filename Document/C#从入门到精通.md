@@ -92,3 +92,22 @@
   - decimal money = 1.12m；decimal money = 1.12M
   - 常用于财务或货币计算
 - bool 类型默认是 false；
+
+引用类型；相当于指针，指向相同的地址
+
+- student1.Name = "aa";  student2 = student1; student2.Name = "bb";
+  - 这个时候 student1.Name 变成了 "bb" 因为它是引用类型，相当于指向相同的地址
+
+C# 中所有类的基类都是 System.Object 等价于 object
+
+- 所有创建的类，默认都是继承了 Object
+  - Class Person    <== 等价于 ==>    Class Person : Object
+
+C# 中的 System.String 等价于 string
+
+- string 是为了简化字符串操作；在 C 语言中需要使用 ASCII 码和函数实现字符串操作
+- 注意：string 是引用类型，理论上应该和 student 类一样，相当于指针；
+  - 但是实际上 str1 = “aa”; str2 = str1; str2 = "bb";
+  - str2 此时是修改了的
+  - 在 C# 里面会重新生成一个 str2 的对象，相当于两个 str2 交给垃圾回收机制回收
+

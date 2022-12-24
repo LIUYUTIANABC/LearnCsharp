@@ -19,7 +19,17 @@ namespace ConsoleApp1
             Console.WriteLine("第一个 C# 程序");
             name = Console.ReadLine();
             Console.Write("当前用户是：" + name);
+
+            Class1 stu1 = new Class1();
+            Class1 stu2 = new Class1();
+            stu2 = stu1;
+            stu1.name = "aa";
+            stu2.name = "bb";
+            Console.WriteLine("学生1：" + stu1.name);
+            Console.WriteLine("学生2：" + stu2.name);
             Console.ReadLine();
+
+            object s1 = "AAA";
         }
         void fun()
         {
