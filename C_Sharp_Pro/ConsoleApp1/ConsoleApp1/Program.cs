@@ -11,6 +11,12 @@ namespace ConsoleApp1
     {
         string str1 = "aaaa";
         static string str2 = "bbbb";
+
+        const int PRICE1 = PRICE2 + 2;
+        const int PRICE2 = 10;
+        static readonly int PRICE3 = PRICE4 + 2;
+        static readonly int PRICE4 = 11;
+
         static void Main(string[] args)
         {
             pre a = new pre();
@@ -20,6 +26,9 @@ namespace ConsoleApp1
             name = Console.ReadLine();
             Console.Write("当前用户是：" + name);
 
+            Console.WriteLine();
+            Console.WriteLine("----------------- 调试 变量 -----------------");
+
             Class1 stu1 = new Class1();
             Class1 stu2 = new Class1();
             stu2 = stu1;
@@ -27,9 +36,16 @@ namespace ConsoleApp1
             stu2.name = "bb";
             Console.WriteLine("学生1：" + stu1.name);
             Console.WriteLine("学生2：" + stu2.name);
-            Console.ReadLine();
 
             object s1 = "AAA";
+
+            Console.WriteLine();
+            Console.WriteLine("----------------- 调试 常量 -----------------");
+
+            Console.WriteLine("测试常量：'{0}', '{1}', '{2}', '{3}' ", PRICE1, PRICE2, PRICE3, PRICE4);
+
+            Console.WriteLine(name is int);
+            Console.ReadLine();
         }
         void fun()
         {
@@ -51,6 +67,6 @@ namespace MyTest
     }
 
     class pre1
-    { 
+    {
     }
 }
