@@ -13,7 +13,19 @@
     - [3.4 常量](#34-常量)
     - [4.2 运算符](#42-运算符)
     - [运算符的优先级](#运算符的优先级)
-  - [字符](#字符)
+  - [字符串](#字符串)
+    - [字符](#字符)
+    - [字符串](#字符串-1)
+      - [字符串拼接](#字符串拼接)
+      - [字符串比较](#字符串比较)
+      - [字符串格式化](#字符串格式化)
+      - [字符串截取](#字符串截取)
+      - [字符串分割](#字符串分割)
+      - [字符串插入](#字符串插入)
+      - [字符串删除](#字符串删除)
+      - [字符串复制](#字符串复制)
+      - [字符串替换](#字符串替换)
+      - [可变字符串类](#可变字符串类)
 
 # C#从入门到精通
 
@@ -264,9 +276,134 @@ static readonly int PRICE3 = PRICE4 + 2;
 
 ![img](./img/2022-12-28_prio.jpg)
 
-## 字符
+## 字符串
+
+### 字符
 
 - 字符 Char/char 只能表示一个字符，用单引号括起来；
 - Char 本身也是一个类，自身带有很多的方法可以直接使用；
-  - Char
+  - Char.ToString('b'); Char.IsUpper(ch); Char.IsLower(ch);
+  - 参考 VS 中自带的帮助文档
+- 转义字符：" \ "
+  - WriteLine("C:\Windows"); 会报错，因为有无法转义的字符 "\W"
+  - 用 @ 快速转义；WriteLine(@"C:\Windows\Microsoft.NET\v4.0");
+
+![img](./img/2022-12-29_Char.jpg)
+![img](./img/2022-12-29_Char1.jpg)
+
+### 字符串
+
+- 字符串定义了，必须赋值后才能使用，直接使用会报错
+- string 实际上是字符数组 char[] value= {'s','e','t'};
+- 空字符串 str = “”；和空引用 str = null；
+  - 空字符串，它有内存空间，可以调用 string 的任何方法
+  - 空引用，没有指向任何引用地址，调用 string 的方法会有错
+
+#### 字符串拼接
+
+- 使用 +
+  - string str = "123" + "456"; // 123456
+- 使用 +=
+  - string str = "123"； str += "456"; // 123456
+
+#### 字符串比较
+
+- 使用 ==
+- 使用 String.Compare(s1, s2); 全字符比较
+  - 返回 0：s1 等于 s2
+  - 返回 1：s1 大于 s2
+  - 返回 -1：s1 小于 s2
+  - String.Compare(s1, s2, true); 不比较大小写
+  - String.Compare(s1, s2, false); 比较大小写
+- str.CompareTo(str1); 返回整型
+- Equals；返回 bool 类型 （推荐使用）
+  - str.Equals(str1); 实例化方法
+  - string.Equals(str,str1); 使用 string 静态方法
+
+#### 字符串格式化
+
+使用 string.Format 格式化
+
+- 数值格式化
+  - String.Format();
+    - string myStr = string.Format("{0} 小于 {1}"，a, b);
+
+![img](./img/2022-12-29_string.jpg)
+
+- 标准日期时间格式规范
+
+![img](./img/2022-12-29_stringFormat.jpg)
+
+使用 ToString 格式化
+
+- int i = 10; i.ToString("C");
+- strData.ToString("D");
+
+![img](./img/2022-12-29_stringFormat1.jpg)
+
+- 参考代码：ConsoleApp1\Program.cs (字符串格式日期时间)
+
+#### 字符串截取
+
+使用 Substring 截取
+
+- 字符串截取在程序中，常用来获取文件名，和扩展名
+
+![img](./img/2022-12-29_SubString.png)
+
+- 参考代码：ConsoleApp1\Program.cs (字符串截取)
+
+#### 字符串分割
+
+使用 Split 分割
+
+- 把一串字符串，按照指定符号，分割成数组；比如，一串姓名，分开获取每个名字
+- 参考 VS 帮助文档，string 类 -> split 方法
+- 参考代码：ConsoleApp1\Program.cs (字符串分割)
+
+#### 字符串插入
+
+使用 string.Insert 在指定位置插入指定字符
+
+- 参考代码：ConsoleApp1\Program.cs (字符串插入)
+
+#### 字符串删除
+
+使用 string.Remove 在指定位置删除指定数量的字符
+
+- 参考代码：ConsoleApp1\Program.cs (字符串删除)
+
+#### 字符串复制
+
+使用 String.Copy 复制，全部复制
+使用 String.CopyTo 复制，可以指定长度，位置
+
+- 参考代码：ConsoleApp1\Program.cs (字符串复制)
+
+#### 字符串替换
+
+使用 Replace 替换
+
+- 替换一个字符：str.Replace('a','b');
+- 替换子字符：str.Replace("abc","cde");
+- 参考代码：ConsoleApp1\Program.cs (字符串替换)
+
+#### 可变字符串类
+
+- 在 C# 中字符串是固定不变的，对字符串的操作，在内存中会重新创建一个新的字符
+
+![img](./img/2022-12-29_stringBuild.jpg)
+
+为了避免因为频繁的操作字符串，导致内存消耗，可以创建可变字符串
+
+- StringBuilder 是在 System.Text 这个命名空间中；
+  - 如果要使用 StringBuilder 应该注意是否包含了 System.Text 命名空间
+- String 是在 System 命名空间中
+- 使用 StringBuilder 对象的操作，始终都是对原字符串的操作，不会创建新的字符串
+
+![img](./img/2022-12-29_stringBuilder1.jpg)
+
+
+
+
 
