@@ -152,8 +152,22 @@ namespace ConsoleApp1
             }
             endTime = DateTime.Now.Millisecond;
             Console.WriteLine("StringBuilder 消耗的时间：" + (endTime - startTime));
-            
-            
+
+            Console.WriteLine();
+            Console.WriteLine("----------------- 调试 数组 -----------------");
+
+            int[] arr = new int[5] { 5,11,50,18,20};
+            int tempArr = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] > tempArr)
+                {
+                    tempArr = arr[i];
+                }
+            }
+            Console.WriteLine("数组中的最大值是：" + tempArr);
+
+
             Console.ReadLine();
         }
         void fun()
