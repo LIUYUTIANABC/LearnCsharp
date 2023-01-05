@@ -26,6 +26,14 @@
       - [字符串复制](#字符串复制)
       - [字符串替换](#字符串替换)
       - [可变字符串类](#可变字符串类)
+  - [第六章 语句](#第六章-语句)
+    - [if 语句](#if-语句)
+    - [switch 多分支语句](#switch-多分支语句)
+    - [while 循环结构](#while-循环结构)
+    - [do While 循环使用](#do-while-循环使用)
+    - [for 循环语句](#for-循环语句)
+    - [foreach 遍历数组](#foreach-遍历数组)
+    - [转移语句（跳转语句）](#转移语句跳转语句)
 
 # C#从入门到精通
 
@@ -402,6 +410,72 @@ static readonly int PRICE3 = PRICE4 + 2;
 - 使用 StringBuilder 对象的操作，始终都是对原字符串的操作，不会创建新的字符串
 
 ![img](./img/2022-12-29_stringBuilder1.jpg)
+
+String 和 StringBuilder 的区别
+
+- String 是不可变的，对 String 变量的操作，最后都会在内存中创建很多临时对象，影响性能
+- StringBuilder 是可变的，操作的始终是一个对象，而且，速度更快
+  - StringBuilder 就是为可变字符串操作而产生的
+- 当程序中，频繁对某个字符串进行操作，使用 StringBuilder；避免产生太多临时对象
+- 当程序中，只是对某个字符串简单的比较操作时，使用 String；
+
+## 第六章 语句
+
+### if 语句
+
+- 注意：bool 值的判断不需要使用 ==
+  - bool flag； if（flag == true）； 这种写法没有错，但是不好
+  - bool 本来就是只有 true 和 false； 直接写 if（flag）；
+  - 同理：if（!flag）;
+- 只有一条if else 语句时，可以使用条件运算符，更加简洁；（条件 ？结果1 ：结果2）
+
+### switch 多分支语句
+
+- Switch 判断的数据类型必须是 bool，char，string，整型，枚举类型
+  - 不能是 double，float 类型；
+- 在 C# 中，每个 case 中必须有 break；在 C 语言中可以没有 break；
+- switch 和 if... else if... else 的区别
+  - switch 判断的是常量，效率更高；
+  - if 判断的是条件语句
+
+### while 循环结构
+
+- 注意：在 C# 中 while(1) 和 while(0) 是错误的；应该写 while(true)
+  - while 的表达式只能是 bool 值，不能是整型；
+  - 在 C 语言中是正确的
+
+### do While 循环使用
+
+- do while 至少执行一次循环体
+- while 可以一次都不执行
+
+### for 循环语句
+
+- for 循环中的逗号；表达式1 和 表达式3 中可以使用逗号，写多个语句
+
+![img](./img/2023-1-5_for_loop.jpg)
+
+- 如果 表达式2 中要判断多个条件应该用 && 逻辑运算符，不能是逗号；
+
+![img](./img/2023-1-5_for_loop1.jpg)
+
+### foreach 遍历数组
+
+![img](./img/2023-1-5_foreach.png)
+
+### 转移语句（跳转语句）
+
+- 如果遇到死循环，可以使用跳转语句 goto 语句
+- 转移语句还包括：break；continue；goto
+  - 在 for，while 循环中，使用 break 来跳出循环
+    - 和 if 语句，控制循环结束
+  - 在 for，while 循环中，跳过本次循环 continue；
+    - 判断偶数的和，就可以使用 continue；
+  - break 和 continue 不能用在 if 语句中；
+  - goto 语句：可以忽略当前程序逻辑，直接跳转到指定位置执行程序
+    - 程序中应该减少使用，会使程序逻辑混乱；
+
+![img](./img/2023-1-5_goto.jpg)
 
 
 

@@ -127,6 +127,33 @@ namespace ConsoleApp1
             string strReplace = strInsert.Replace("Keep","Don't");
             Console.WriteLine("替换后的字符串：" + strReplace);
 
+            Console.WriteLine();
+            Console.WriteLine("----------------- 调试 StringBuilder -----------------");
+
+            StringBuilder sTitle = new StringBuilder("(),(),(),2,4,6,7,8");
+            Console.WriteLine(sTitle);
+            sTitle.Remove(0,9);
+            sTitle.Insert(0,"(门前大桥下),(游过一群鸭),(快来快来数一数),");
+            Console.WriteLine(sTitle);
+            Console.WriteLine("String 和 StringBuilder 执行效率");
+            String strB = "";
+            long startTime = DateTime.Now.Millisecond;
+            for (int i = 0; i < 10000; i++)
+            {
+                strB += i;
+            }
+            long endTime = DateTime.Now.Millisecond;
+            Console.WriteLine("String 消耗的时间：" + (endTime - startTime));
+            StringBuilder strB1 = new StringBuilder("");
+            startTime = DateTime.Now.Millisecond;
+            for (int i = 0; i < 10000; i++)
+            {
+                strB1.Append(i);
+            }
+            endTime = DateTime.Now.Millisecond;
+            Console.WriteLine("StringBuilder 消耗的时间：" + (endTime - startTime));
+            
+            
             Console.ReadLine();
         }
         void fun()
