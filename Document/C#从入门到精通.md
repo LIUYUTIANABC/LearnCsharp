@@ -498,3 +498,21 @@ String 和 StringBuilder 的区别
 
 ![img](./img/2023-1-7_TwoD-Array.jpg)
 
+foreach 循环输出语句
+
+- 参考文档：C_Sharp_Note.md
+- 参考代码：HelloWorld\Program.cs (foreach)
+
+Array 类；里面有对数组的操作
+
+- 参考文档：C_Sharp_Note.md
+- 参考代码：HelloWorld\Program.cs ( System.Array 数组基类方法 )
+
+冒泡排序，参考前面文档和程序
+
+选择排序算法
+
+- 思想：从数组当中，选择一个最小（最大）的数，放到第一位；
+  - 再从剩下的数组中，选择最小的放到第二位；依次循环选择；
+- 参考代码：ConsoleApp1\Program.cs （选择排序）
+

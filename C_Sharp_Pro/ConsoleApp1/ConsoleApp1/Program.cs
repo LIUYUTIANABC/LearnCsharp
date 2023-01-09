@@ -167,6 +167,65 @@ namespace ConsoleApp1
             }
             Console.WriteLine("数组中的最大值是：" + tempArr);
 
+            Console.WriteLine();
+            Console.WriteLine("----------------- 调试 多维数组 -----------------");
+
+            int[,] arrD = { {1,2,3 },{4,5,6 },{7,8,9 } };
+            Console.WriteLine("把数组的行列互换；原数组为：");
+            for (int i = 0; i < arrD.GetLength(0); i++)
+            {
+                for (int j = 0; j < arrD.GetLength(1); j++)
+                {
+                    Console.Write(" " + arrD[i,j]);
+                }
+                Console.WriteLine();
+            }
+            int arrDtemp = 0;
+            for (int i = 0; i < arrD.GetLength(0); i++)
+            {
+                for (int j = 0; j < i; j++)
+                {
+                    arrDtemp = arrD[i,j];
+                    arrD[i, j] = arrD[j, i];
+                    arrD[j, i] = arrDtemp;
+                }
+            }
+            Console.WriteLine("交换后的数组为：");
+            for (int i = 0; i < arrD.GetLength(0); i++)
+            {
+                for (int j = 0; j < arrD.GetLength(1); j++)
+                {
+                    Console.Write(" " + arrD[i, j]);
+                }
+                Console.WriteLine();
+            }
+            int[] arrChiose = new int[] {11,2,20,14,60,30 };
+            Console.WriteLine("选择排序，原数组：");
+            for (int i = 0; i < arrChiose.Length; i++)
+            {
+                Console.Write(" " + arrChiose[i]);
+            }
+            Console.WriteLine();
+            int min = 0;
+            for (int i = 0; i < arrChiose.Length - 1; i++)
+            {
+                min = i;
+                for (int j = i+1; j < arrChiose.Length; j++)
+                {
+                    if (arrChiose[j] < arrChiose[min])
+                    {
+                        min = j;
+                    }
+                }
+                arrDtemp = arrChiose[min];
+                arrChiose[min] = arrChiose[i];
+                arrChiose[i] = arrDtemp;
+            }
+            Console.WriteLine("选择排序，后的数组：");
+            for (int i = 0; i < arrChiose.Length; i++)
+            {
+                Console.Write(" " + arrChiose[i]);
+            }
 
             Console.ReadLine();
         }
