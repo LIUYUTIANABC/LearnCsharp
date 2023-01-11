@@ -516,3 +516,18 @@ Array 类；里面有对数组的操作
   - 再从剩下的数组中，选择最小的放到第二位；依次循环选择；
 - 参考代码：ConsoleApp1\Program.cs （选择排序）
 
+ArrayList 类；动态数组；使用大小会根据需要动态增加的数组
+
+- 常用方法：构造函数 3 种
+- 添加
+  - add 在结尾添加元素
+  - insert 在指定位置添加元素
+- 删除
+  - Clear 移除所有 ArrayList 元素
+  - Remove 移除特定对象的第一个匹配项
+  - RemoveAt 移除指定索引处的元素
+  - RemoveRange 移除一定范围的元素；
+- 查找
+  - Contains 判断元素是否在 ArrayList 中
+- 参考代码：ConsoleApp1\Program.cs （ArrayList）
+

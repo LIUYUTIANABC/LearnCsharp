@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -227,6 +228,32 @@ namespace ConsoleApp1
                 Console.Write(" " + arrChiose[i]);
             }
 
+            Console.WriteLine();
+            Console.WriteLine("----------------- 调试 ArrayList -----------------");
+
+            int[] arrlist = new int[] {1,2,3,4,5,6 };
+            ArrayList list = new ArrayList(arrlist);
+            foreach (int ilist in list)
+            {
+                Console.Write(" " + ilist);
+            }
+            Console.WriteLine();
+            for (int i = 0; i < 5; i++)
+            {
+                list.Add(i + arr.Length);   // 在结尾处添加
+            }
+            Console.WriteLine("使用 Add 方法添加");
+            foreach (int ilist in list)
+            {
+                Console.Write(" " + ilist);
+            }
+            Console.WriteLine();
+            list.Insert(1,6);      // 在指定位置添加
+            Console.WriteLine("使用 Insert 方法添加");
+            foreach (int ilist in list)
+            {
+                Console.Write(" " + ilist);
+            }
             Console.ReadLine();
         }
         void fun()
