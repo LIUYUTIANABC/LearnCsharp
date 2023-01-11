@@ -254,6 +254,17 @@ namespace ConsoleApp1
             {
                 Console.Write(" " + ilist);
             }
+
+            Console.WriteLine();
+            Console.WriteLine("----------------- 调试 Hashtable -----------------");
+
+            Hashtable hashTable = new Hashtable();
+            hashTable.Add("id","BH0001");
+            hashTable.Add("name", "Rick");
+            hashTable.Add("sex", "M");
+            Console.WriteLine("查找键：" + hashTable.Contains("id"));
+            Console.WriteLine("查找值：" + hashTable.ContainsValue("M"));
+
             Console.ReadLine();
         }
         void fun()

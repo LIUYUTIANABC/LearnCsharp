@@ -35,6 +35,12 @@
     - [foreach 遍历数组](#foreach-遍历数组)
     - [转移语句（跳转语句）](#转移语句跳转语句)
   - [第七章 数组](#第七章-数组)
+    - [二维数组](#二维数组)
+    - [foreach 循环输出语句](#foreach-循环输出语句)
+    - [冒泡排序，参考前面文档和程序](#冒泡排序参考前面文档和程序)
+    - [选择排序算法](#选择排序算法)
+    - [ArrayList 类；动态数组；使用大小会根据需要动态增加的数组](#arraylist-类动态数组使用大小会根据需要动态增加的数组)
+    - [Hashtable 类；表示根据键的哈希代码进行组织的键/值对的集合](#hashtable-类表示根据键的哈希代码进行组织的键值对的集合)
 
 # C#从入门到精通
 
@@ -486,7 +492,7 @@ String 和 StringBuilder 的区别
 
 ![img](./img/2023-1-5_Arr.jpg)
 
-二维数组
+### 二维数组
 
 - 创建数组：int[,] a = new int[2][3];  // 后面的 2，3 指定行数和列数
   - 这种方法创建每行的列数都相同
@@ -498,7 +504,7 @@ String 和 StringBuilder 的区别
 
 ![img](./img/2023-1-7_TwoD-Array.jpg)
 
-foreach 循环输出语句
+### foreach 循环输出语句
 
 - 参考文档：C_Sharp_Note.md
 - 参考代码：HelloWorld\Program.cs (foreach)
@@ -508,15 +514,15 @@ Array 类；里面有对数组的操作
 - 参考文档：C_Sharp_Note.md
 - 参考代码：HelloWorld\Program.cs ( System.Array 数组基类方法 )
 
-冒泡排序，参考前面文档和程序
+### 冒泡排序，参考前面文档和程序
 
-选择排序算法
+### 选择排序算法
 
 - 思想：从数组当中，选择一个最小（最大）的数，放到第一位；
   - 再从剩下的数组中，选择最小的放到第二位；依次循环选择；
 - 参考代码：ConsoleApp1\Program.cs （选择排序）
 
-ArrayList 类；动态数组；使用大小会根据需要动态增加的数组
+### ArrayList 类；动态数组；使用大小会根据需要动态增加的数组
 
 - 常用方法：构造函数 3 种
 - 添加
@@ -530,4 +536,19 @@ ArrayList 类；动态数组；使用大小会根据需要动态增加的数组
 - 查找
   - Contains 判断元素是否在 ArrayList 中
 - 参考代码：ConsoleApp1\Program.cs （ArrayList）
+
+### Hashtable 类；表示根据键的哈希代码进行组织的键/值对的集合
+
+- 构造函数多种
+- 常用方法；添加
+  - add 添加元素；有两个属性 key 和 value
+- 删除
+  - Clear 移除所有元素
+  - Remove 移除指定键的值
+- 遍历
+  - 可以使用 foreach
+  - 需要注意，Hashtable 是一个 键/值对，因此需要 DictionaryEntry 表示键值对的集合
+- 查找
+  - Contains 查找键
+  - ContainsValue 查找特定值
 
