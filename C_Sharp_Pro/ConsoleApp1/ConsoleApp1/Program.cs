@@ -18,6 +18,7 @@ namespace ConsoleApp1
         static readonly int PRICE3 = PRICE4 + 2;
         static readonly int PRICE4 = 11;
 
+        /* params 可变参数  */
         public static void UseParams(params int[] list)
         {
             for (int i = 0; i < list.Length; i++)
@@ -25,6 +26,17 @@ namespace ConsoleApp1
                 Console.Write(" " + list[i]);
             }
             Console.WriteLine();
+        }
+
+        /* 构造函数， 析构函数 */
+        public Program()
+        {
+            Console.WriteLine("调用 Program 构造函数");
+        }
+        ~Program()
+        {
+            Console.WriteLine("调用 Program 析构函数");
+            Console.ReadLine();
         }
 
         static void Main(string[] args)
@@ -280,6 +292,12 @@ namespace ConsoleApp1
             UseParams(1);
             UseParams(1,2);
             UseParams(1,2,3);
+
+            Console.WriteLine();
+            Console.WriteLine("----------------- 调试 构造函数 和 析构函数 -----------------");
+
+            Program pro = new Program();
+
 
             Console.ReadLine();
         }

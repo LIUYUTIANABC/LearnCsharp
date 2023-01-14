@@ -610,11 +610,13 @@ namespace HelloWorld
                 }
             }
         }
+        // 构造函数
         public student(string name, int age)
         {
             this.name = name;
             this.age = age;
         }
+        // 方法
         public void PrintStudent()
         {
             Console.WriteLine("结构体方法，姓名：" + name);
