@@ -18,6 +18,15 @@ namespace ConsoleApp1
         static readonly int PRICE3 = PRICE4 + 2;
         static readonly int PRICE4 = 11;
 
+        public static void UseParams(params int[] list)
+        {
+            for (int i = 0; i < list.Length; i++)
+            {
+                Console.Write(" " + list[i]);
+            }
+            Console.WriteLine();
+        }
+
         static void Main(string[] args)
         {
             pre a = new pre();
@@ -264,6 +273,13 @@ namespace ConsoleApp1
             hashTable.Add("sex", "M");
             Console.WriteLine("查找键：" + hashTable.Contains("id"));
             Console.WriteLine("查找值：" + hashTable.ContainsValue("M"));
+
+            Console.WriteLine();
+            Console.WriteLine("----------------- 调试 params 可变参数 -----------------");
+
+            UseParams(1);
+            UseParams(1,2);
+            UseParams(1,2,3);
 
             Console.ReadLine();
         }
