@@ -43,6 +43,7 @@
     - [Hashtable 类；表示根据键的哈希代码进行组织的键/值对的集合](#hashtable-类表示根据键的哈希代码进行组织的键值对的集合)
   - [第八章 属性和方法](#第八章-属性和方法)
   - [第九章](#第九章)
+  - [第十章 Form 窗体](#第十章-form-窗体)
 
 # C#从入门到精通
 
@@ -637,4 +638,31 @@ Array 类；里面有对数组的操作
 - 类和对象的关系
   - 类是抽象出来的集合
   - 对象是类实例出来的个
+
+## 第十章 Form 窗体
+
+- 1、创建 form 窗体项目 Form1
+- 2、添加一个新的窗体 Form2；删除一个窗体
+- 3、修改程序默认运行的窗体
+- 4、窗体的属性
+  - 1）更换窗体图标（Icon）
+  - 2）隐藏窗体的标题栏（FormBoardStyle）
+    - 可以设置其他窗体标题栏的显示
+  - 3）窗体的起始位置（StartPosition）
+    - 四个属性：WindowsDefaultLocation 按照 Location 的位置启动
+    - CenterScreen: 屏幕居中
+    - CenterParent： 副窗口中居中
+  - 4）修改窗体大小（Size）
+  - 5）设置窗体背景（BackgroundImage）
+- 窗体的显示和隐藏
+  - 在一个窗体中通过按钮打开另一个窗体；调用 Show 方法显示窗体
+    - Form2 frm2 = new Form2();  // 实例化 Form2
+    - frm2.Show();  // 调用 Show 方法显示 Form2 窗体
+  - 窗体的隐藏；调用 Hide 方法隐藏
+    - this.Hide();
+- 窗体的事件
+  - Click（单击）事件：单击窗体，触发窗体的 Click 事件
+    - MessageBox.Show("Hello！！");  // 产生一个消息对话框
+  - Load（加载）事件：窗体产生时自动加载的事件，先执行的 Load 事件的方法
+  - FormClosing（关闭）事件；窗体关闭时，触发的事件
 
