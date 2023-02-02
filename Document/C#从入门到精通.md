@@ -665,4 +665,29 @@ Array 类；里面有对数组的操作
     - MessageBox.Show("Hello！！");  // 产生一个消息对话框
   - Load（加载）事件：窗体产生时自动加载的事件，先执行的 Load 事件的方法
   - FormClosing（关闭）事件；窗体关闭时，触发的事件
+- 参考项目：WinFormsApp1
+
+
+MDI 窗体
+
+- MDI（Multiple-Document Interface）多文档界面
+  - 用于显示多个文档，每个文档显示在各自的窗口中
+- 设置 MDI 窗体
+  - 父窗体：把窗体的属性 IsMdiContainer 设置为 True
+  - 子窗体：需要在代码里面设置
+
+```
+// 在主窗体的 Form1_Load 方法中编写
+Form2 frm2 = new Form2();
+frm2.Show();
+frm2.MdiParent = this;
+```
+
+- 排列 MDI 子窗体
+  - 使用 MdiLayout 定义 MDI 子窗体布局
+  - Cascade：所有 MDI 子窗体均层叠在 MDI 父窗体的工作区内
+  - TileHorizontal：所有 MDI 子窗体均水平平铺在 MDI 父窗体的工作区内
+  - TileVertical：所有 MDI 子窗体均垂直平铺在 MDI 父窗体的工作区内
+
+
 
