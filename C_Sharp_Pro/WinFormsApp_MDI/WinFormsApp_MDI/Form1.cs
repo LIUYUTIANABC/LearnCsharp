@@ -25,37 +25,24 @@ namespace WinFormsApp_MDI
             Form3 frm3 = new Form3();
             frm3.Show();
             frm3.MdiParent = this;
-            
         }
-
-        private void Cascade_Click(object sender, EventArgs e)
-
-        //实现对主窗体中的MDI窗体的层叠操作
-
+        private void HorizontallyTileMyWindows(object sender, System.EventArgs e)
         {
-
-            this.LayoutMdi(MdiLayout.Cascade);
-
-        }
-
-        private void TileH_Click(object sender, EventArgs e)
-
-        //实现对主窗体中的MDI窗体的水平平铺操作
-
-        {
-
+            // Tile all child forms horizontally.
             this.LayoutMdi(MdiLayout.TileHorizontal);
-
         }
 
-        private void TileV_Click(object sender, EventArgs e)
-
-        //实现对主窗体中的MDI窗体的垂直平铺操作
-
+        private void VerticallyTileMyWindows(object sender, System.EventArgs e)
         {
-
+            // Tile all child forms vertically.
             this.LayoutMdi(MdiLayout.TileVertical);
-
         }
+
+        private void CascadeMyWindows(object sender, System.EventArgs e)
+        {
+            // Cascade all MDI child windows.
+            this.LayoutMdi(MdiLayout.Cascade);
+        }
+
     }
 }
