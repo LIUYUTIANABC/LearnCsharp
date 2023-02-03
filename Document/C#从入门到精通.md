@@ -44,6 +44,8 @@
   - [第八章 属性和方法](#第八章-属性和方法)
   - [第九章](#第九章)
   - [第十章 Form 窗体](#第十章-form-窗体)
+    - [MDI 窗体](#mdi-窗体)
+    - [继承窗体](#继承窗体)
 
 # C#从入门到精通
 
@@ -668,7 +670,7 @@ Array 类；里面有对数组的操作
 - 参考项目：WinFormsApp1
 
 
-MDI 窗体
+### MDI 窗体
 
 - MDI（Multiple-Document Interface）多文档界面
   - 用于显示多个文档，每个文档显示在各自的窗口中
@@ -688,6 +690,25 @@ frm2.MdiParent = this;
   - Cascade：所有 MDI 子窗体均层叠在 MDI 父窗体的工作区内
   - TileHorizontal：所有 MDI 子窗体均水平平铺在 MDI 父窗体的工作区内
   - TileVertical：所有 MDI 子窗体均垂直平铺在 MDI 父窗体的工作区内
+- 参考项目：WinFormsApp_MDI
+
+### 继承窗体
+
+根据现有的窗体的结构，创建一个与其一模一样的窗体；方便对基窗体的重复使用；
+
+- 窗体的基窗体，必须在本命名空间中已编译成可执行文件或是 DLL（动态链接库）
+
+创建继承窗体的方法
+
+- 1、通过编程的方式
+  - Form2 : WinFormsApp2_InhertedForm.Form1
+- 2、通过继承选择器创建继承窗体
+  - 创建窗体的时候选择继承的窗体
 
 
+Modifiers 属性：控制继承窗体的控件是否可以编辑
+
+- 如果继承窗体后，发现继承的窗体控件不可编辑，就要修改基窗体控件的 Modifiers 属性为 public；
+
+- 参考项目：WinFormsApp2_InhertedForm
 
