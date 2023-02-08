@@ -1,5 +1,67 @@
 # C# 学习笔记
 
+- [C# 学习笔记](#c-学习笔记)
+  - [命名规则](#命名规则)
+    - [常用方法](#常用方法)
+    - [命名](#命名)
+  - [C# 类和对象](#c-类和对象)
+    - [C# 类的定义（class）](#c-类的定义class)
+    - [C# 访问修饰符、修饰符](#c-访问修饰符修饰符)
+    - [C# 方法的定义](#c-方法的定义)
+    - [C# get 和 set](#c-get-和-set)
+    - [C# 调用类成员](#c-调用类成员)
+    - [C# 构造函数](#c-构造函数)
+    - [C# 析构函数](#c-析构函数)
+    - [C# 方法重载](#c-方法重载)
+    - [C# 方法的参数 - 引用参数和输出参数](#c-方法的参数---引用参数和输出参数)
+    - [C# lambda 表达式](#c-lambda-表达式)
+    - [C# 递归](#c-递归)
+    - [C# 嵌套类](#c-嵌套类)
+    - [C# 部分类](#c-部分类)
+    - [C# Console类](#c-console类)
+    - [C# Math类](#c-math类)
+    - [C# Random类](#c-random类)
+    - [C# DateTime类](#c-datetime类)
+  - [C# 字符串](#c-字符串)
+    - [C# 字符串及常用的方法](#c-字符串及常用的方法)
+    - [C# 获取字符串长度（string.Length）](#c-获取字符串长度stringlength)
+    - [C# 查找字符串中的字符（IndexOf 和 LastIndexOf）](#c-查找字符串中的字符indexof-和-lastindexof)
+    - [C# 字符串替换（Replace）](#c-字符串替换replace)
+    - [C# 字符串截取函数（Substring）](#c-字符串截取函数substring)
+    - [C# 字符串插入（Insert）](#c-字符串插入insert)
+    - [C# 数据类型转换](#c-数据类型转换)
+    - [C# 隐式数据类型转换](#c-隐式数据类型转换)
+    - [C# 强制数据类型转换](#c-强制数据类型转换)
+    - [C# 字符串类型转换（Parse）](#c-字符串类型转换parse)
+    - [C# 数据类型转换（Convert）](#c-数据类型转换convert)
+    - [C# 装箱和拆箱（值类型和引用类型）](#c-装箱和拆箱值类型和引用类型)
+    - [C# 正则表达式（Regex 类）](#c-正则表达式regex-类)
+  - [C# 数组](#c-数组)
+    - [C# 数组简介](#c-数组简介)
+    - [C# 一维数组](#c-一维数组)
+    - [C# 多维数组](#c-多维数组)
+    - [C# foreach循环用法](#c-foreach循环用法)
+    - [C# Split 将字符串拆分成数组](#c-split-将字符串拆分成数组)
+    - [冒泡排序（Sort 方法）](#冒泡排序sort-方法)
+    - [C# 枚举类型（enum）](#c-枚举类型enum)
+    - [C# 结构体类型（struct）](#c-结构体类型struct)
+  - [C# 继承和派生](#c-继承和派生)
+    - [C# 基类和派生类](#c-基类和派生类)
+    - [C# Object 类](#c-object-类)
+    - [C# 判断两个对象是否相等（Equals）](#c-判断两个对象是否相等equals)
+    - [C# 获取哈希码（GetHashCode）方法](#c-获取哈希码gethashcode方法)
+    - [C# 获取对象 type 类型（GetType）](#c-获取对象-type-类型gettype)
+    - [C# 返回对象实例的字符串（ToString）](#c-返回对象实例的字符串tostring)
+    - [C# VS2015类图的使用](#c-vs2015类图的使用)
+    - [C# 调用父类成员方法 base](#c-调用父类成员方法-base)
+    - [C# virtual（虚拟）关键字详解](#c-virtual虚拟关键字详解)
+      - [方法隐藏和方法重写的区别](#方法隐藏和方法重写的区别)
+  - [知识积累](#知识积累)
+    - [C#中 ??  ?  ?:  ?. ?\[ \] 问号](#c中----------问号)
+    - [try...catch 异常处理](#trycatch-异常处理)
+    - [C# 中的 IDisposable 模式用法详解](#c-中的-idisposable-模式用法详解)
+
+
 ## 命名规则
 
 ### 常用方法
@@ -917,4 +979,167 @@ A a1 = new B();
 a1.Print();
 A a2 = new C();
 a2.Print();
+```
+
+## 知识积累
+
+### C#中 ??  ?  ?:  ?. ?[ ] 问号
+
+- 参考网址：https://www.cnblogs.com/youmingkuang/p/11459615.html
+
+- 1、可空类型修饰符 ( ? )
+  - 例如：int? 表示可空的整形，DateTime? 表示可为空的时间
+  - int? firstX = null;
+- 2、三元（运算符）表达式 ( ?: )
+  - 例如：x?y:z 表示如果表达式 x 为 true，则返回y；如果 x 为 false，则返回 z
+- 3、空合并运算符 ( ?? )
+  - 例如：a??b 当 a 为 null 时则返回 b，a 不为 null 时则返回 a 本身
+- 4、NULL 检查运算符 ( ?. )
+  - 如果对象为 NULL，则不进行后面的获取成员的运算，直接返回 NULL
+  - points?.FirstOrDefault(); points 不为空才调用 FirstOrDefault();
+  - _pack?.Dispose();
+
+```
+if(_pack != NULL) _pack.Dispose();
+```
+
+### try...catch 异常处理
+
+- 在执行C#代码时，可能会发生不同的错误：程序员的编码错误、错误输入导致的错误或其他不可预见的事情。
+- 发生错误时，C#通常会停止并生成错误消息
+
+- 参考网址：https://www.w3schools.cn/cs/cs_exceptions.asp
+
+
+```
+// 语法：
+try
+{
+  //  要尝试的代码块
+}
+catch (Exception e)
+{
+  //  处理错误的代码块
+}
+```
+
+例子：抛出异常，输出异常消息
+
+```
+// 数组越界，产生异常
+try
+{
+  int[] myNumbers = {1, 2, 3};
+  Console.WriteLine(myNumbers[10]);
+}
+catch (Exception e)
+{
+  Console.WriteLine(e.Message);
+  Console.WriteLine("Something went wrong.");
+}
+```
+
+finally 语句
+
+- 例子：不管 try...catch 语句是否有异常，都会执行 finally 语句
+
+```
+try
+{
+  int[] myNumbers = {1, 2, 3};
+  Console.WriteLine(myNumbers[10]);
+}
+catch (Exception e)
+{
+  Console.WriteLine("Something went wrong.");
+}
+finally
+{
+  Console.WriteLine("The 'try catch' is finished.");
+}
+// 输出:
+// Something went wrong.
+// The 'try catch' is finished.
+```
+
+throw 语句
+
+- 抛出异常，自定义的错误；
+- throw 语句与异常类exception class一起使用。
+  - C# 中有许多可用的异常类：
+  - ArithmeticException, FileNotFoundException,IndexOutOfRangeException,TimeOutException等
+
+- 例子：数字小于范围，则抛出异常
+
+```
+static void checkAge(int age)
+{
+  if (age < 18)
+  {
+    throw new ArithmeticException("Access denied - You must be at least 18 years old.");
+  }
+  else
+  {
+    Console.WriteLine("Access granted - You are old enough!");
+  }
+}
+
+static void Main(string[] args)
+{
+  checkAge(15);
+  // 输出： System.ArithmeticException: 'Access denied - You must be at least 18 years old.'
+  checkAge(20);
+  // 输出： Access granted - You are old enough!
+}
+```
+
+### C# 中的 IDisposable 模式用法详解
+
+- 参考网址：https://www.jb51.net/article/54899.htm
+
+托管资源和非托管资源
+
+- C# 中有垃圾回收机制 GC (Garbage Collection)，可以回收类中占用的内存，但是，只可以清理托管资源；
+- 托管资源：创建的数组，用户定义的类、接口、委托，object，字符串等。由 GC 负责回收
+- 非托管资源：好比IO、网络链接、数据库链接、文件、窗口等等。须要开发人员手动释放
+  - 当释放非托管资源的时候，需要实现接口 IDisposable 里面的 Dispose()方法
+
+
+```
+public interface IDisposable
+{
+  void Dispose();
+}
+public class DisposablClass : IDisposable
+{
+  //是否回收完毕
+  bool _disposed;
+  public void Dispose()
+  {
+    Dispose(true);
+    GC.SuppressFinalize(this);
+  }
+  ~DisposableClass()
+  {
+    Dispose(false);
+  }
+
+  //这里的参数表示示是否需要释放那些实现IDisposable接口的托管对象
+  protected virtual void Dispose(bool disposing)
+  {
+    if(_disposed) return; //如果已经被回收，就中断执行
+    if(disposing)
+    {
+      //TODO:释放那些实现IDisposable接口的托管对象
+      if (_port != null)
+        {
+            _port?.Dispose();
+            _port = null;
+        }
+    }
+    //TODO:释放非托管资源，设置对象为null
+    _port?.Dispose();
+    _disposed = true;
+  }
+}
 ```
