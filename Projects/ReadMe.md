@@ -4,6 +4,7 @@
   - [SerialPort](#serialport)
     - [实例化 SerialPort 对象](#实例化-serialport-对象)
     - [编写串口接收和发送的程序](#编写串口接收和发送的程序)
+  - [SerialPortPro\_Remake](#serialportpro_remake)
 
 ## SerialPort
 
@@ -37,3 +38,7 @@ vscode Nuget Package Manager 提示 Versioning information could not be retrieve
 - 参考网址：https://blog.csdn.net/zxy13826134783/article/details/83045341
 
 对应程序就是 SerialPort 工程代码
+
+## SerialPortPro_Remake
+
+- 是在工程 SerialPort 基础上，又结合 Daniel 的代码重新做的串口按字节接收和发送的程序
