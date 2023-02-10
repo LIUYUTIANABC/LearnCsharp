@@ -8,6 +8,7 @@
   - [SerialPortPro\_AT32-DLL](#serialportpro_at32-dll)
     - [创建类库](#创建类库)
   - [VSCode\_solution-explorer](#vscode_solution-explorer)
+  - [Frame\_WPF](#frame_wpf)
 
 ## SerialPort
 
@@ -87,3 +88,30 @@ vscode Nuget Package Manager 提示 Versioning information could not be retrieve
   - 注意：类库的 build 不能使用命令 dotnet run 创建 dll；
   - 必须在 solution 扩展中，右击解决方案 -- build
 - 注意：使用 VSCode 创建的解决方案，在 VS 中可以打开，但是，会有很多错误；目前还不知道怎么解决
+
+## Frame_WPF
+
+- 参考网址：https://www.cnblogs.com/wml-it/p/14870223.html
+
+WPF（Windows Presentation Foundation）Windows 演示基础
+
+- 是微软推出的基于 Windows 的用户界面框架，属于.NET Framework 3.0 的一部分
+
+- 创建 WPF 项目：创建项目 -- WPF 应用程序
+
+生成文件介绍
+
+- App.xmal: 程序主体，用来配置项目，指定窗体等
+  - xmlns;  声明命名空间
+  - StartupUri="MainWindow.xaml"  配置启动窗体
+- App.xaml.cs，它是 app.xaml 的后台代码。
+- MainWindow1.xmal：默认程序的主窗体。
+  - 可以设置窗体属性（Title， Height, 等），添加控件（Button，Text 等）
+- MainWindow1.xmal.cs 是 MainWindow1.xmal 的源码
+
+Viewbox 组件
+
+- ViewBox 组件的作用是缩放窗体的时候，使之有更好的布局及视觉效果
+- winForm 界面控件，属于静态布局，缩放的时候，是不会变的
+  - 烂代码是：一眼看不懂得代码，耦合在一起的代码，重复的代码，要重构
+  - 参考网址：https://www.cnblogs.com/ramo/p/13500563.html
