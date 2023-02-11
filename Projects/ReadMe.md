@@ -9,6 +9,9 @@
     - [创建类库](#创建类库)
   - [VSCode\_solution-explorer](#vscode_solution-explorer)
   - [Frame\_WPF](#frame_wpf)
+  - [Frame\_WPF\_XAML](#frame_wpf_xaml)
+  - [Frame\_MVVM](#frame_mvvm)
+  - [Frame\_MVVM\_Remake](#frame_mvvm_remake)
 
 ## SerialPort
 
@@ -115,3 +118,40 @@ Viewbox 组件
 - winForm 界面控件，属于静态布局，缩放的时候，是不会变的
   - 烂代码是：一眼看不懂得代码，耦合在一起的代码，重复的代码，要重构
   - 参考网址：https://www.cnblogs.com/ramo/p/13500563.html
+
+## Frame_WPF_XAML
+
+在 Frame_WPF 基础工程上，使用 XAML 创建按钮和响应按钮事件
+
+- 参考网址：https://blog.csdn.net/huijianight/article/details/5558041
+
+添加按键，按键属性，文本框
+
+- 使用默认的 MainWindow.xaml 添加控件，比如按键，页面布局等
+
+响应按键事件
+
+- 和 WinForm 的响应事件类似
+  - 在 MainWindow.xaml.cs 中添加方法
+  - 然后在 MainWindow.xaml 控件中，指定 click 对应的方法名
+- 这里的 view 和 controller 没有分开，耦合度高
+- 实际上的 MVVM 是视图和逻辑分开，完全消除视图和逻辑的耦合
+  - 使用 Binding（绑定） + ICommand（命令） 关联视图和逻辑
+
+## Frame_MVVM
+
+实现一个最简单的 MVVM 程序
+
+- 参考网址：https://www.cnblogs.com/SilveryBullet/p/8418401.html
+
+- 文件夹：Base 是博主写的父类，目前还不太懂，只知道用
+- MainWindowViewModel.cs 是 VM 层
+- MainWindow.xaml 是 View 层
+- 没有 Model 层
+
+## Frame_MVVM_Remake
+
+在 Frame_MVVM 基础上，添加 Model 层，调用一个新的类 UserInfo
+
+- 参考网址：https://www.cnblogs.com/wujialongcn/p/14436459.html
+- 先代码顺序：Model 层 -- ViewModel 层 -- View 层
