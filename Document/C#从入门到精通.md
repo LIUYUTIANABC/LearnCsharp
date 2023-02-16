@@ -743,7 +743,7 @@ Modifiers 属性：控制继承窗体的控件是否可以编辑
 - 1、在窗体上绘制控件
 - 2、将控件拖拽到窗体上
 - 3、编程的方法
-  - 参考程序代码
+  - 参考程序代码：
 
 控件对齐
 
@@ -757,6 +757,8 @@ Modifiers 属性：控制继承窗体的控件是否可以编辑
 
 - 右击 -- 删除
 - 选中 -- Delete 键
+
+参考项目： WinFormsApp_Controls
 
 ### 文本类控件
 
@@ -772,8 +774,41 @@ Button 按钮控件：用户单击执行操作；
 
 - Button 即可以显示文本，也可以显示图像；
 - 执行过程是先被按下，然后释放
-- 设置窗体 Form1 的 AcceptButton 属性；
+- 接受按钮：设置窗体 Form1 的 AcceptButton 属性；
   - 即在当前窗口按下回车响应的按钮
-- 设置窗体 Form1 的 CancelButton 属性；
+- 取消按钮：设置窗体 Form1 的 CancelButton 属性；
   - 当按下 ESC 这个按键，响应的按钮
+
+TextBox 文本框控件，用于获取用户的输入或者显示文本
+
+- 创建只读文本
+  - 设置属性 ReadOnly 为 True
+- 密码文本
+  - 设置属性 UseSystemPasswordChar 为 True；显示为星号 *
+  - 自定义加密字符，设置属性 PasswordChar 为任意字符，#
+- 设置多行文本
+  - 设置属性 Multiline 为 True
+- 突出显示某些文本； 使用代码；在 Form1_Load 里面添加
+  - textBox1.SelectionStart = 5;  // 从第5个字节开始
+  - textBox1.SelectionLength = 5;  // 选中5个字节
+- TextBox 响应更改事件
+  - 设置事件 TextChange 代码
+
+RichTextBox 有格式文本控件；用于显示，输入，操作带有格式的文本
+
+- 可以显示字体，颜色，链接，嵌入图片，撤销，查找等多功能
+- 比如 QQ 的聊天窗体
+- 设置 RichTextBox 的滚动条；在 Form1_Load 里面添加
+  - richTextBox1.Multiline = true;
+  - richTextBox1.ScrollBars = RichTextBoxScrollBars.Vertical;
+- 设置 RichTextBox 的字体；
+  - 参考代码
+- 设置 RichTextBox 的超链接；
+  - 如果文本是一个网址，点击，访问链接
+  - 需要写一个 LinkClicked(); 调用一个进程，访问链接
+  - 详情参考代码，代码有错误，还找不到解决办法
+- 设置 RichTextBox 的段落；
+  - richTextBox1.SelectionBullet = true; 每一行都有项目符号指示；
+
+参考项目： WinFormsApp_TextControl
 
