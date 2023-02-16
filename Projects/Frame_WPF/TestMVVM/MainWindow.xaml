@@ -1,0 +1,99 @@
+﻿<Window x:Class="TestMVVM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestMVVM"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+
+    <Viewbox>
+        <ListView Height="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="60">
+                        <CheckBox>全选</CheckBox>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="False" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="设备名称" Width="60"></GridViewColumn>
+                    <GridViewColumn Header="型号" Width="60"></GridViewColumn>
+                    <GridViewColumn Header="灵敏度" Width="60"></GridViewColumn>
+                    <GridViewColumn  Width="60">
+                        <CheckBox>采样率</CheckBox>
+                    </GridViewColumn>
+                    <GridViewColumn  Width="60">
+                        <CheckBox>分辨率</CheckBox>
+                    </GridViewColumn>
+                    <GridViewColumn  Width="70">
+                        <CheckBox>输入方式</CheckBox>
+                    </GridViewColumn>
+                    <GridViewColumn  Width="70">
+                        <CheckBox>同步方式</CheckBox>
+                    </GridViewColumn>
+                    <GridViewColumn  Width="70">
+                        <CheckBox>加密方式</CheckBox>
+                    </GridViewColumn>
+                    <GridViewColumn  Width="60">
+                        <CheckBox>秘钥</CheckBox>
+                    </GridViewColumn>
+                    <GridViewColumn  Width="80">
+                        <CheckBox>触发方式</CheckBox>
+                    </GridViewColumn>
+                    <GridViewColumn  Width="70">
+                        <CheckBox>负延迟(s)</CheckBox>
+                    </GridViewColumn>
+                    <GridViewColumn  Width="85">
+                        <CheckBox>采集时长(s)</CheckBox>
+                    </GridViewColumn>
+                    <GridViewColumn  Width="70">
+                        <CheckBox>触发次数</CheckBox>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Viewbox>
+
+    <Viewbox>
+        <Grid>
+            <!--行-->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200" />
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!--列-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!--布局方式-->
+            <StackPanel Grid.Row="0">
+                <TextBlock Width="250" Height="26" Text="您所在的省份:" TextWrapping="Wrap" Background="Azure" FontSize="20"/>
+                <ListBox x:Name="listStockName" Width="200" Height="90" Background="Azure" FontSize="20">
+                    <ListBoxItem Content="安徽省"/>
+                    <ListBoxItem Content="浙江省 "/>
+                    <ListBoxItem Content="江苏省"/>
+                    <ListBoxItem Content="湖南省 "/>
+                    <ListBoxItem Content="湖北省 "/>
+                    <ListBoxItem Content="河南省"/>
+                    <ListBoxItem Content="陕西省 "/>
+                    <ListBoxItem Content="福建省"/>
+                    <ListBoxItem Content="江西省"/>
+                </ListBox>
+                <TextBlock Width="250" Height="24" Text="你所选中的省份:" Background="Aqua" FontSize="20" />
+                <!--绑定选择项值-->
+                <TextBlock Width="250" Height="30" Text="{Binding ElementName=listStockName, Path=SelectedItem.Content}" Background="Azure" FontSize="26"/>
+            </StackPanel>
+        </Grid>
+    </Viewbox>
+
+    </Grid>
+</Window>

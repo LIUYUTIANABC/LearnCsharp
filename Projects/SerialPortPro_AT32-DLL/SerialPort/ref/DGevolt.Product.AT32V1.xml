@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DGevolt.Product.AT32V1</name>
+    </assembly>
+    <members>
+        <member name="T:DGevolt.Product.AT32V1">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:DGevolt.Product.AT32V1._packetLength">
+            <summary>
+            This is the packet length including the start and end bytes.
+            there are _packetLength - 3 bytes for the payload.
+            </summary>
+        </member>
+        <member name="M:DGevolt.Product.AT32V1.#ctor(System.String)">
+             <summary>
+            
+             </summary>
+             <param name="communicationPort"></param>
+        </member>
+        <member name="M:DGevolt.Product.AT32V1.GetAssemblyVersion">
+            <summary>
+            Get the Assembly version number from the Dll.
+            </summary>
+            <returns>String of the version number.</returns>
+        </member>
+        <member name="M:DGevolt.Product.AT32V1.HealthCheck">
+            <summary>
+            This is a Private function that should be used to check that all the public properties are at sane defaults,
+            since the properties are public, users can accidentally make some large changes to the library that will be out
+            of the intended library design / intention spec.
+            </summary>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:DGevolt.Product.AT32V1.Dispose">
+            <summary>
+                Dispose the equipment
+            </summary>
+        </member>
+        <member name="M:DGevolt.Product.AT32V1.Dispose(System.Boolean)">
+            <summary>
+                Dispose the equipment
+            </summary>
+            <param name="disposeTheObject">True if this is called from public void Dispose()</param>
+        </member>
+        <member name="M:DGevolt.Product.AT32V1.Finalize">
+            <summary>
+                Garbage collection function, to make sure that the object is properly removed.
+            </summary>
+        </member>
+        <member name="T:DGevolt.Product.SystemFlags">
+            <summary>
+            First set of system flags for the AT32 device
+            </summary>
+        </member>
+        <member name="T:DGevolt.Product.UartCommands">
+            <summary>
+            The header bytes for the device.
+            </summary>
+        </member>
+    </members>
+</doc>

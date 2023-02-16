@@ -1,0 +1,25 @@
+﻿<Window x:Class="TestMVVM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestMVVM"
+        xmlns:vm="clr-namespace:TestMVVM.ViewModel"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="600" Background="gray">
+
+    <Window.DataContext>
+        <vm:UserInfoViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <TextBox Text="{Binding Name}" HorizontalAlignment="Left" Margin="176,82,0,0"  VerticalAlignment="Top" Width="120"/>
+        <Label Content="姓名" HorizontalAlignment="Left" Margin="122,78,0,0" VerticalAlignment="Top"/>
+        <TextBox Text="{Binding Age}" HorizontalAlignment="Left" Margin="176,112,0,0"  VerticalAlignment="Top" Width="120"/>
+        <Label Content="年龄" HorizontalAlignment="Left" Margin="122,108,0,0" VerticalAlignment="Top"/>
+
+        <TextBox Name="textBox1" Text="{Binding TextBox1Text}" Height="23" HorizontalAlignment="Left" Margin="120,150,0,0"  VerticalAlignment="Top" Width="120" />
+        <Button Content="Button1" Command="{Binding Button1Cmd}" Height="23" HorizontalAlignment="Left" Margin="309,80,0,0" Name="button1" VerticalAlignment="Top" Width="75" />
+        <Button Content="Button2" Command="{Binding Button2Cmd}" Height="23" HorizontalAlignment="Left" Margin="309,110,0,0" Name="button2" VerticalAlignment="Top" Width="75" />
+    </Grid>
+
+</Window>
