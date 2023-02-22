@@ -50,6 +50,7 @@
     - [控件的分类和作用](#控件的分类和作用)
     - [控件的相关操作](#控件的相关操作)
     - [文本类控件](#文本类控件)
+    - [选择类控件](#选择类控件)
 
 # C#从入门到精通
 
@@ -811,4 +812,37 @@ RichTextBox 有格式文本控件；用于显示，输入，操作带有格式�
   - richTextBox1.SelectionBullet = true; 每一行都有项目符号指示；
 
 参考项目： WinFormsApp_TextControl
+
+### 选择类控件
+
+1、下拉组合框控件（ComboBox 控件）
+2、复选框控件（CheckBox 控件）
+3、单选按钮控件（RadioButton 控件）
+4、数值选择控件（NumericUpDown 控件）
+5、列表控件（ListBox 控件）
+
+下拉组合框控件（ComboBox 控件）; 它显示一个选项列表，用户可从中选择一项。
+
+- 属性 comboBox1.DropDownStyle 可以选择
+  - DropDownList； 文本框不可编辑，下拉列表可以选择
+  - DropDown； 文本框可编辑
+  - Simple； 下拉列表以文本的形式显示
+- 为下拉列表添加选项
+  - comboBox1.Items.Add("选项一");
+- 全选文本框的内容
+  - comboBox1.SelectAll();
+- 文本框内容改变事件
+  - comboBox1_SelectedIndexChanged();
+
+复选框控件（CheckBox控件）; 多选框，值是 True 或 False
+
+- 事件：复选框的单击事件
+  - checkBox1_CheckedChanged
+- 属性：复选框的选择状态
+  - 被选中：checkBox1.CheckState == CheckState.Checked
+- 属性：复选框默认是勾选或是未勾选
+  - 设置属性 Checked 为 True 或 False
+- 事件：复选框状态改变事件
+  - checkBox1_CheckStateChanged
+
 
