@@ -51,6 +51,7 @@
     - [控件的相关操作](#控件的相关操作)
     - [文本类控件](#文本类控件)
     - [选择类控件](#选择类控件)
+    - [分组类控件](#分组类控件)
 
 # C#从入门到精通
 
@@ -880,3 +881,31 @@ RichTextBox 有格式文本控件；用于显示，输入，操作带有格式�
 - 属性 可以多选 listBox 内容
   - SelectionMode： MultiExtended 可以用 ctrl、shift 键配合多选
 
+参考项目： WinFormsApp_SelectControl
+
+### 分组类控件
+
+- 1、容器控件（Panel控件）
+- 2、分组框控件（GroupBox控件）
+- 3、选项卡控件（TabControl控件）
+
+容器控件（Panel控件）用于为其他控件提供可识别的分组。容器控件（Panel控件）可以有滚动条。
+
+- Panel 可以添加其他控件，直接拖动就可以了
+- 属性：Panel.Visible，设置 Panel 显示
+  - 同时里面的控件也会显示出来
+
+分组框控件（GroupBox控件）主要为其他控件提供分组，按照控件的分组来细分窗体的功能。
+
+- 其在所包含的控件集周围总是显示边框，并且可以显示标题，
+
+选项卡控件（TabControl控件）可以添加多个选项卡，然后在选项卡上添加子控件。
+
+- 这个控件里面有多个页，每个页可以添加不同的控件或图片等
+- 设置 TabPage 的属性
+  - tabPage2.Text = "选项卡2";
+  - tabPage2.ImageIndex = 1;
+- 在 TabPage 中添加控件
+  - tabPage1.Controls.Add(btn1);
+
+参考项目： WinFormsApp_GroupControl
