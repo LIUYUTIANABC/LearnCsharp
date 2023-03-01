@@ -60,7 +60,7 @@
     - [C#中 ??  ?  ?:  ?. ?\[ \] 问号](#c中----------问号)
     - [try...catch 异常处理](#trycatch-异常处理)
     - [C# 中的 IDisposable 模式用法详解](#c-中的-idisposable-模式用法详解)
-    - [SerialPortPro\_Remake\_AT32-DLL](#serialportpro_remake_at32-dll)
+  - [Learn\_WPF\_XAML](#learn_wpf_xaml)
 
 
 ## 命名规则
@@ -1145,5 +1145,109 @@ public class DisposablClass : IDisposable
 }
 ```
 
-### SerialPortPro_Remake_AT32-DLL
+## Learn_WPF_XAML
 
+单独学习 XAML 界面内容；
+
+- 参考网址：https://www.jb51.net/article/98384.htm
+
+XAML：就是微软为构建应用程序界面而创建的一种描述性语言，也就是说，这东西是搞界面的
+
+```
+<Window x:Class='MyXaml.Window1'
+ xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'
+ xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
+ Title='MyXaml' Height='150' Width='300' >
+ <Grid>
+  <Grid.RowDefinitions>
+  <RowDefinition Height='30'/>
+  <RowDefinition Height='30'/>
+  <RowDefinition Height='30'/>
+  </Grid.RowDefinitions>
+  <Grid.ColumnDefinitions>
+  <ColumnDefinition Width='Auto'/>
+  <ColumnDefinition Width='*'/>
+  </Grid.ColumnDefinitions>
+  <TextBlock Grid.Column='0' Grid.Row='0' FontWeight='Bold' Text='姓名：' Width='30'/>
+  <TextBlock Grid.Column='0' Grid.Row='1' FontWeight='Bold' Width='30'>性别：</TextBlock>
+  <TextBlock Grid.Column='0' Grid.Row='2' FontWeight='Bold' Width='30' Text='年龄'></TextBlock>
+  <TextBox Grid.Column='1' Grid.Row='0' FontWeight='Bold' Width='100' />
+  <TextBox Grid.Column='1' Grid.Row='1' FontWeight='Bold' Width='100'/>
+  <TextBox Grid.Column='1' Grid.Row='2' FontWeight='Bold' Width='100'/>
+ </Grid>
+</Window>
+```
+
+- 启动的界面；在 App.xaml 中，程序启动后运行的界面
+  - StartupUri='Window1.xaml'
+
+XAML 语法概述
+
+- Grid 控件；单元格，可以设置布局，有属性 row 和 column
+  - 上述是一个 三行两列 的布局
+- TextBlock 和 TextBox 控件；就是一些控件
+  - 还有很多控件，比如 Button 等
+  - 控件中的 Grid.Column='0' Grid.Row='1'；表示在 0 列 1 行
+- WPF 中的布局有 5 种：Canvas、Grid、StackPanel、DockPanel和WrapPanel
+  - 1、Canvas：绝对布局；和 WinForm 一致，都是以左上角为中心，按照上下距离左上角的坐标为标准的
+    - 改变 button 的位置，就要给button控件设置：
+    - Canvas.Left、 Canvas.Top、Canvas.Bottom 和Canvas.Right 这四个属性。
+    - 常用于固定的界面，或要求不太高的界面
+  - 2、Grid：网格布局；可以把窗体分为几行几列；每个网格当中以中心为基准
+    - RowDefinition：只有 Height 属性，没有 Width
+    - ColumnDefinition ：只有 Width 属性，没有 Height
+    - Height/Width='*' 表示占据窗体剩下的所有高度/宽度
+    - 如果都为 * 则表示平分窗体
+    - 如果让窗体 3：1 将两个行定义分别设置为3* 和 *
+  - 3、StackPanel：栈布局；从窗口中间部位，从顶部开始，从上到下排列控件；布局默认是竖向布局
+    - 修改属性： Orientation='Horizontal'  改为横向布局
+    - Orientation='Vertical'纵向布局，默认属性
+  - 4、DockPanel：默认布局原则，从左中位置开始，控件依次排列，最后一个控件将剩余区域从中心填充
+    - 设置属性：DockPanel.Dock="Bottom" 可以是 Top，Left，Right，Buttom
+    - 从底部中间位置依次排列，最后一个控件在剩余区域中心填充
+  - 5、WrapPanel：原则是从窗体左上角开始，多控件的自动换行; 默认的布局是横向
+    - 横向：Orientation="Horizontal" 默认布局
+    - 竖向：Orientation="Vertical" 左上角开始，向下顺序排列控件，到低自动换到下一列
+
+```
+<Canvas>
+  <Button Name='btn1' Height='100' Width='100' Content='btn1' Margin='10'/>
+  <Button Name='btn2' Height='100' Width='100' Content='btn2' Margin='10'/>
+</Canvas>
+
+<Grid>
+  <Grid.RowDefinitions>
+   <RowDefinition Height='*'/>
+   <RowDefinition Height='*'/>
+  </Grid.RowDefinitions>
+  <Grid.ColumnDefinitions>
+   <ColumnDefinition Width='*'/>
+   <ColumnDefinition Width='*'/>
+  </Grid.ColumnDefinitions>
+  <Button Name='btn1' Height='40' Width='40' Content='btn1' />
+  <Button Grid.Row='1' Grid.Column='1' Name='btn2' Height='40' Width='40' Content='btn2' />
+</Grid>
+
+<StackPanel Orientation='Horizontal'>
+  <Button Name='btn1' Height='40' Width='40' Content='btn1' />
+  <Button Name='btn2' Height='40' Width='40' Content='btn2' />
+</StackPanel>
+
+<DockPanel>
+    <Button DockPanel.Dock="Bottom" Name="btn1" Height="40" Width="40" Content="btn1" />
+    <Button DockPanel.Dock="Bottom" Height="40" Width="40" Content="btn2" />
+    <Button Height="40" Width="40" Content="btn2" />
+    <Button Height="40" Width="40" Content="btn2" />
+    <Button Height="40" Width="40" Content="btn2" />
+    <Button Height="40" Width="40" Content="btn2" />
+ </DockPanel>
+```
+
+核心控件
+
+- 上面讲述了 WPF 的布局，在布局里面需要添加控件，控件有很多
+  - 第一类：用户输入控件：Button、RadioButton、ComboBox、TextBox、Label...
+  - 第二类：窗口修饰控件：Menu、ToolBar、StatusBar、ToolTip、ProgressBar...
+  - 第三类：媒体控件，支持音频/视频的重放和图像的显示：Image、MediaElement、SoundPlayerAction
+- 控件的添加和触发事件，和 WinForm 有共同点，这里不做记录
+  - WinForm 全面学习控件，WPF 用到哪个，查哪个
