@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsApp_Menu_Tool_Status", "WinFormsApp_Menu_Tool_Status\WinFormsApp_Menu_Tool_Status.csproj", "{FA149ED7-571B-4DD0-A657-DF2CFA5B795F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FA149ED7-571B-4DD0-A657-DF2CFA5B795F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA149ED7-571B-4DD0-A657-DF2CFA5B795F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA149ED7-571B-4DD0-A657-DF2CFA5B795F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA149ED7-571B-4DD0-A657-DF2CFA5B795F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6387D945-3D91-4ECB-998C-152EAFB0948F}
+	EndGlobalSection
+EndGlobal
