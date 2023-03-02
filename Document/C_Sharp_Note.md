@@ -61,6 +61,7 @@
     - [try...catch 异常处理](#trycatch-异常处理)
     - [C# 中的 IDisposable 模式用法详解](#c-中的-idisposable-模式用法详解)
   - [Learn\_WPF\_XAML](#learn_wpf_xaml)
+  - [C# 特性(Attribute)之 Flag 特性](#c-特性attribute之-flag-特性)
 
 
 ## 命名规则
@@ -1251,3 +1252,40 @@ XAML 语法概述
   - 第三类：媒体控件，支持音频/视频的重放和图像的显示：Image、MediaElement、SoundPlayerAction
 - 控件的添加和触发事件，和 WinForm 有共同点，这里不做记录
   - WinForm 全面学习控件，WPF 用到哪个，查哪个
+
+## C# 特性(Attribute)之 Flag 特性
+
+参考网址：https://www.cnblogs.com/GreenLeaves/p/6752822.html
+
+- 用 [Flags] 标识的枚举类型，作为位域（标识符）处理
+- 当进行 | & 的操作时，记录的是两个位，而不是一个整型
+- .Net 中的枚举一般有两种用法
+  - (1)、表示唯一的元素序列,列入一周天里面的各天
+  - (2)、表示多种的复合状态,这个时候一般需要为枚举加上[Flags]特性为标记
+- 这种 [Flags] 的枚举，常用在权限、执行状态等场合，用 int 型保存整个状态
+
+```
+public enum Permission
+{
+    create = 1,
+    read = 2,
+    update = 4,
+    delete = 8,
+}
+[Flags]
+public enum Permission1
+{
+    create = 1,
+    read = 2,
+    update = 4,
+    delete = 8,
+}
+
+Console.WriteLine(permission.ToString());  // 输出 15
+Console.WriteLine((int)permission);  // 输出 15
+Console.WriteLine(permission1.ToString());  // 输出 create, read, update, delete
+Console.WriteLine((int)permission1);  // 输出 15
+```
+
+
+
