@@ -53,6 +53,8 @@
     - [选择类控件](#选择类控件)
     - [分组类控件](#分组类控件)
     - [菜单、工具栏、状态栏控件](#菜单工具栏状态栏控件)
+  - [第十二课 控件2](#第十二课-控件2)
+    - [ImageList 控件](#imagelist-控件)
 
 # C#从入门到精通
 
@@ -926,4 +928,20 @@ RichTextBox 有格式文本控件；用于显示，输入，操作带有格式�
   - 可以显示 Label，DropDownButton，SplitButton，ProgressBar 等控件
   - 代码：状态栏的进度拦的滚动
     - this.toolStripProgressBar1.PerformStep();
+
+参考项目： WinFormsApp_Menu_Tool_Status
+
+## 第十二课 控件2
+
+### ImageList 控件
+
+图像列表（ImageList）：用于存储图像资源，便于管理图像
+
+- 添加图像
+  - Add(Image value) 方法
+- 删除图像
+  - RemoveAt(index)  移除 index 图像
+  - Clear()  移除所有的图像
+
+参考项目： WinFormsApp_ImageList
 
