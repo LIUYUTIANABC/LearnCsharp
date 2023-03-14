@@ -61,6 +61,8 @@
     - [try...catch 异常处理](#trycatch-异常处理)
     - [C# 中的 IDisposable 模式用法详解](#c-中的-idisposable-模式用法详解)
   - [Learn\_WPF\_XAML](#learn_wpf_xaml)
+  - [C# 特性(Attribute)之 Flag 特性](#c-特性attribute之-flag-特性)
+  - [C# 中异步编程 Async 和 Await 的用法](#c-中异步编程-async-和-await-的用法)
 
 
 ## 命名规则
@@ -1251,3 +1253,134 @@ XAML 语法概述
   - 第三类：媒体控件，支持音频/视频的重放和图像的显示：Image、MediaElement、SoundPlayerAction
 - 控件的添加和触发事件，和 WinForm 有共同点，这里不做记录
   - WinForm 全面学习控件，WPF 用到哪个，查哪个
+
+## C# 特性(Attribute)之 Flag 特性
+
+参考网址：https://www.cnblogs.com/GreenLeaves/p/6752822.html
+
+- 用 [Flags] 标识的枚举类型，作为位域（标识符）处理
+- 当进行 | & 的操作时，记录的是两个位，而不是一个整型
+- .Net 中的枚举一般有两种用法
+  - (1)、表示唯一的元素序列,列入一周天里面的各天
+  - (2)、表示多种的复合状态,这个时候一般需要为枚举加上[Flags]特性为标记
+- 这种 [Flags] 的枚举，常用在权限、执行状态等场合，用 int 型保存整个状态
+
+```
+public enum Permission
+{
+    create = 1,
+    read = 2,
+    update = 4,
+    delete = 8,
+}
+[Flags]
+public enum Permission1
+{
+    create = 1,
+    read = 2,
+    update = 4,
+    delete = 8,
+}
+
+Console.WriteLine(permission.ToString());  // 输出 15
+Console.WriteLine((int)permission);  // 输出 15
+Console.WriteLine(permission1.ToString());  // 输出 create, read, update, delete
+Console.WriteLine((int)permission1);  // 输出 15
+```
+
+## C# 中异步编程 Async 和 Await 的用法
+
+参考网址：https://www.cnblogs.com/webapi/p/15210123.html
+参考网址：https://www.cnblogs.com/zhaoshujie/p/11192036.html
+
+- 异步编程，即使用 Async 和 Await 关键字，可以让主 UI 不阻塞，同时重开一个进程
+- 执行 Await 修饰的方法或等待 Await 修饰的变量完成；
+- 异步方法的名称以“Async”后缀结尾
+- Async 的返回类型可以有三种
+  - 1、如果你的方法有操作数为 TResult 类型的返回语句，则为 Task<TResult>
+  - 2、如果你的方法没有返回语句或具有没有操作数的返回语句，则为 Task
+  - 3、如果你编写的是异步事件处理程序，则为 Void
+- Async 方法通常包含至少一个 await 表达式；如果没有 Await 则和同步方法一样，顺序执行
+
+![img](./img/2023-3-2_Async_await.jpg)
+
+```
+private async void button1_Click(object sender, EventArgs e)
+{
+    var t = Task.Run(() => {
+        Thread.Sleep(5000);
+        return "webapi";
+    });
+    textBox1.Text = await t;
+}
+```
+
+Task.Run 用法; Task 启动的线程默认为线程池里的，启动后默认为后台线程
+
+```
+1、无参无返回值
+
+Task.Run(Test);
+public void Test()
+{
+    //...to...
+}
+
+2、无参有返回值
+
+// 以string返回值为例,Task<string>中的<string>可省略
+// task前面的var也可以直接写Task<string>,这里如果直接写的话不能将<string>省略
+var task=Task.Run(Test);
+string result=task.Result;
+public string Test()
+{
+    //...todo...
+    return "str";
+}
+
+3、有参无返回值
+
+// 以string参数为例
+string str="str...";
+Task.Run(()=>Test(str));
+public void Test(string str)
+{
+    //...todo...
+}
+
+4、有参有返回值
+
+// 这里以参数为int,返回值string为例
+int num = 10 ;
+var task = Task.Run(() => Test(num));
+string result = task.Result;
+public string Test(int n)
+{
+    //...todo...
+    return "str...";
+}
+
+例子：
+
+/// <summary>
+/// 添加操作日志
+/// </summary>
+/// <param name="caozuo"></param>
+public void AddLog(string caozuo)
+{
+    ActionLog model = new ActionLog()
+    {
+        userID = LoginUser.id,
+        username = LoginUser.username,
+        name = LoginUser.name,
+        times = System.DateTime.Now,
+        caozuo = caozuo
+    };
+    Task.Run(() =>
+    {
+        new ActionLogBLL().Add(model);
+    });
+}
+
+```
+

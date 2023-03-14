@@ -12,6 +12,7 @@
   - [Frame\_WPF\_XAML](#frame_wpf_xaml)
   - [Frame\_MVVM](#frame_mvvm)
   - [Frame\_MVVM\_Remake](#frame_mvvm_remake)
+  - [Frame\_WPF\_MVVM\_Template](#frame_wpf_mvvm_template)
 
 ## SerialPort
 
@@ -155,3 +156,15 @@ Viewbox 组件
 
 - 参考网址：https://www.cnblogs.com/wujialongcn/p/14436459.html
 - 先代码顺序：Model 层 -- ViewModel 层 -- View 层
+
+## Frame_WPF_MVVM_Template
+
+一个新的 MVVM 简单项目，写的还比较规范，可以当成模板
+
+- 参考网址：https://blog.csdn.net/asd497907957/article/details/121988579
+- MVVM 就是在 WPF 的基础上添加两个文件 Notification 和 Command；
+  - Notification 用来通知控件变动
+  - Command 用来绑定控件
+  - 这两个文件，微软并没有做封装，需要自己写；实际上还是 WPF 框架，自己封装成 MVVM
+- 两个数据相加的和；可以快速把 UI 变更为滑动条相加的和；只需修改 xaml 文件即可
+
