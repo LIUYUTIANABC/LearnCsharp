@@ -23,4 +23,12 @@
 
 - 程序代码："..\HostComputer\HostComputerTimer"
 
+## 串口编程 - 只有发送
 
+- 新的内容：
+  - 1、WinForm 窗体里面没有 seriaPort 控件；
+    - 创建工程的时候，应该选择 WinForm(.NET firmware) 的窗体工程
+  - 2、MessageBox 可以设置标题
+    - MessageBox.Show("串口打开错误！！","自定义标题");
+
+- 程序代码："..\HostComputer\HostComputerUsart.Net"
