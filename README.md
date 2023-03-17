@@ -33,3 +33,7 @@
 ## Projects
 
 - 工作中有用的项目
+
+## HostComputer
+
+- C# 上位机开发串口通信编程
