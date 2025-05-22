@@ -22,7 +22,7 @@ namespace HostComputerUsart.Net
             string str;
             for (int i = 0; i < 256; i++)
             {
-                str = i.ToString("x").ToUpper();
+                str = i.ToString("x").ToUpper();  // 十六进制 所有字符大写； ToLower 所有字符小写
                 if (str.Length == 1)
                 {
                     str = "0" + str;
@@ -40,19 +40,20 @@ namespace HostComputerUsart.Net
             string convertdata = data.Substring(2,2);
             byte[] buffer = new byte[1];
             buffer[0] = Convert.ToByte(convertdata,16);
-            try
+            try  // 防止出错
             {
                 serialPort1.Open();
                 serialPort1.Write(buffer , 0 ,1);
                 serialPort1.Close();
             }
-            catch
+            catch(Exception err) // 如果出错，执行此块代码
             {
                 if (serialPort1.IsOpen)
                 {
                     serialPort1.Close();
                     MessageBox.Show("串口打开错误！！","自定义标题");
                 }
+                MessageBox.Show(err.ToString(),"错误");
                 throw;
             }
         }

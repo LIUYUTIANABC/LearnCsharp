@@ -32,3 +32,14 @@
     - MessageBox.Show("串口打开错误！！","自定义标题");
 
 - 程序代码："..\HostComputer\HostComputerUsart.Net"
+
+## 比较全面的串口调试助手
+
+- 新的内容：
+  - 1、容器 Panel 可以框起来单选框 radioButton
+  - 2、GroupBox 框起来
+  - 3、comboBox 也可以在在属性页添加 Items，代码添加也可以
+  - 4、button1 的 Enabled 属性，设置是否可以点击
+
+- 程序代码："..\HostComputer\HostComputerSerialCommunication"
+

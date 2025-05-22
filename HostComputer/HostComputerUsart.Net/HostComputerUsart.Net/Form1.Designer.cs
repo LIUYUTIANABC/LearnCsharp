@@ -37,14 +37,15 @@
             // 
             // serialPort1
             // 
-            this.serialPort1.PortName = "COM10";
+            this.serialPort1.PortName = "COM5";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 24);
+            this.label1.Location = new System.Drawing.Point(22, 42);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 12);
+            this.label1.Size = new System.Drawing.Size(84, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "数 据：";
             // 
@@ -52,16 +53,18 @@
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(79, 21);
+            this.comboBox1.Location = new System.Drawing.Point(145, 37);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(73, 20);
+            this.comboBox1.Size = new System.Drawing.Size(130, 29);
             this.comboBox1.TabIndex = 1;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(14, 60);
+            this.button1.Location = new System.Drawing.Point(26, 105);
+            this.button1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(138, 36);
+            this.button1.Size = new System.Drawing.Size(253, 63);
             this.button1.TabIndex = 2;
             this.button1.Text = "发送数据";
             this.button1.UseVisualStyleBackColor = true;
@@ -69,13 +72,14 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(199, 110);
+            this.ClientSize = new System.Drawing.Size(389, 192);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
