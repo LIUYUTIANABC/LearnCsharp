@@ -43,3 +43,10 @@
 
 - 程序代码："..\HostComputer\HostComputerSerialCommunication"
 
+## 串口调试助手 - 开关控制
+
+- 新的内容：
+  - 1、用 label 做指示灯，是方形的
+    - 可以改变 label1.BackColor = Color.Gray; 属性，实现颜色的变化
+
+- 程序代码："..\HostComputer\HostComputer-OnOffControl"
