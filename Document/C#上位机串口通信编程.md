@@ -50,3 +50,36 @@
     - 可以改变 label1.BackColor = Color.Gray; 属性，实现颜色的变化
 
 - 程序代码："..\HostComputer\HostComputer-OnOffControl"
+
+## 串口调试助手 - 图片按钮 和 定时开关
+
+- 1、制作开关按钮，添加图片的形式
+  - 添加图片资源
+    - 工程名右击-属性-资源-添加资源-添加现有文件
+    - 添加成功后，在解决方案下面有 “Resources” 表示资源
+- 2、按钮使用图片替代
+  - 属性：BackgroundImage 选择静态图片背景
+  - 属性：BackgroundImageLayout 选择静态图片布局方式
+    - Zoom 是按比例放大到合适大小
+    - Center 是居中
+    - Stretch 是拉伸
+- 3、设置button、label等控件的背景色为透明
+  - 将 button 的 backcolor 属性设置为 Transparent，该属性在web选项的第一个；
+  - 将 button 的 FlatStyle 属性设置为Flat。
+  - 如果还想将 button 的边框线去掉，在 button 的 FlatAppearance 属性中的BorderSize 的参数设置为 0
+- 4、添加了资源，要添加事件
+  - 在 Form1.Designer.cs 添加鼠标事件
+    - this.button1.MouseLeave += new System.EventHandler(this.buttonl_MouseLeave)
+      - 方法："buttonl_MouseLeave" 鼠标离开事件
+    - this.button1.MouseHover += new System.EventHandler(this.buttonl_MouseHover)
+      - 方法："buttonl_MouseHover" 鼠标停留事件
+- 5、TestBox1 输入数据
+  - 做文本框，输入框都可以
+- 6、Timer 的注意事项
+  - 定时器开启的是另一条线程，当计时结束后线程并没有结束，UI 阻塞太久，会重复进入中断
+- 7、【作业】
+  - 1.定时输入框可识别3位数字.
+  - 2.制作定时开机的功能
+
+- 程序代码："..\HostComputer\HostComputer-ImageButtonAndTimerOff"
+
