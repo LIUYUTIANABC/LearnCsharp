@@ -83,3 +83,18 @@
 
 - 程序代码："..\HostComputer\HostComputer-ImageButtonAndTimerOff"
 
+## 串口调试助手 - 数据校验
+
+- 1、校验方式：数据取反，是比较好的方式。校验成功，就点亮灯。
+- 2、button 或其他控件，可以设置属性 Tag 用于区分
+- 3、Visual Basic PowerPacks 这个包 VS 不支持了，没搞成功
+  - 下载这个 dll 安装，然后 "工具箱右击" "添加选项卡"
+  - 选项卡添加成功后，"选项卡名右击" "添加项" "选择添加的工具"
+  - 导入后的工具可以在 “路径” 看到 dll 的路径
+  - 注意：发布程序的时候要把这个 dll 也放到相同目录下
+  - 注意：ovalShape1 的属性 FillStyle 必须为 Solid 才可以修改控件的填充颜色
+- 4、【作业】
+  - 1、在按下按键后变灰(不可按)
+  - 2、数据发送及校验并用灯显示下位机状态
+
+- 程序代码："..\HostComputer\HostComputer-VerificationButton"
