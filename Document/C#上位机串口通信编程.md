@@ -98,3 +98,21 @@
   - 2、数据发送及校验并用灯显示下位机状态
 
 - 程序代码："..\HostComputer\HostComputer-VerificationButton"
+
+## 串口调试助手 - 汉字编码转换
+
+- 汉字编码知识
+  - 1、Windows 的编码一般是 UTF-8 字库
+  - 2、Keil, LCD12864 的编码一般是 GB2312 字库
+- 要传递汉字，实际传递的是数据编码
+  - UTF-8 编码： 0xE4BDA0 是 "你"; 0xE5A5BD 是 "好"; 
+  - GB2312 编码:  0xC4E3 是 "你"; 0xBAC3 是 "好"; 
+
+- 程序代码："..\HostComputer\HostComputer-EncodingGB2312"
+
+- 串口调试助手，接收汉字
+  - 1、serialPort1.Encoding = Encoding.GetEncoding("GB2312"); 修改串口助手的编码方式为 GB2312
+  - 2、操作系统的串口是非实时性的，所以一次串口中断可能是多个字节
+  - 3、串口接收数据，要一次性取所有缓冲区数据
+
+- 程序代码："..\HostComputer\HostComputerSerialCommunication"

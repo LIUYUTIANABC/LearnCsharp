@@ -4,10 +4,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
+using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace HostComputerSerialCommunication
 {
@@ -16,6 +18,7 @@ namespace HostComputerSerialCommunication
         public Form1()
         {
             InitializeComponent();
+            serialPort1.Encoding = Encoding.GetEncoding("GB2312");
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -46,18 +49,30 @@ namespace HostComputerSerialCommunication
             }
             else //如果接收模式为数值接收
             {
-                // 十六进制
-                byte data;
-                data = (byte)serialPort1.ReadByte();//此处需要强制类型转换，将(int)类型数据特换为(byte)英型数据
-                // 把数据转换为大写十六进制数据
-                string str = Convert.ToString(data, 16).ToUpper(); //转换为大写十六进制字符串
-                textBox1.AppendText("0x" + (str.Length == 1 ? "0" + str : str) + "");
-                //上一句等同为: 
-                // if(str.Length == 1)
-                //      str = "0" + str;
-                // else
-                //     str = str;
-                // textBox1.AppendText("0x" + str);
+                /* 转换一个字节 */
+                //// 十六进制
+                //byte data;
+                //data = (byte)serialPort1.ReadByte();//此处需要强制类型转换，将(int)类型数据特换为(byte)英型数据
+                //// 把数据转换为大写十六进制数据
+                //string str = Convert.ToString(data, 16).ToUpper(); //转换为大写十六进制字符串
+                //textBox1.AppendText("0x" + (str.Length == 1 ? "0" + str : str) + "");
+                ////上一句等同为: 
+                //// if(str.Length == 1)
+                ////      str = "0" + str;
+                //// else
+                ////     str = str;
+                //// textBox1.AppendText("0x" + str);
+                ///
+
+                /* 转换串口缓冲区的所有字节 */
+                //定义缓冲区，因为串口事件触发时缓冲区可能有多个数据
+                byte[] data = new byte[serialPort1.BytesToRead];
+                serialPort1.Read(data, 0, data.Length);
+                foreach (byte MyByte in data)
+                {
+                    string str = Convert.ToString(MyByte, 16).ToUpper();
+                    textBox1.AppendText("0x" + (str.Length == 1 ? "0"+str : str) + " ");
+                }
             }
         }
 
