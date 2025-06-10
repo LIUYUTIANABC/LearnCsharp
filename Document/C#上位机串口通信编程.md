@@ -129,3 +129,11 @@
 
 - 程序代码："..\HostComputer\HostComputer-ADCProgressBar"
 
+## 串口调试助手 - 10 组 ADC 数据进度条显示
+
+- trackBar 滑块控件
+  - 也可以设置最大值，最下值
+- 多个相同控件的布局方式
+  - 对齐，等间距的排列
+
+- 程序代码："..\HostComputer\HostComputer-ADCProgressBar-10"
