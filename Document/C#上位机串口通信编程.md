@@ -137,3 +137,14 @@
   - 对齐，等间距的排列
 
 - 程序代码："..\HostComputer\HostComputer-ADCProgressBar-10"
+
+## 串口调试助手 - 保存窗体设置到 data.ini 文件
+
+- 引入 [DllImport("kernel32")] 的函数：
+  - 写入数据到 ‘data.ini’:   WritePrivateProfileString
+  - 从 ‘data.ini’ 读取数据:  GetPrivateProfileString
+- 获取当前文件的路径：System.AppDomain.CurrentDomain.BaseDirectory
+
+- 程序代码："..\HostComputer\HostComputer-ADCProgressBar-10"
+
+
