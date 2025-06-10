@@ -116,3 +116,16 @@
   - 3、串口接收数据，要一次性取所有缓冲区数据
 
 - 程序代码："..\HostComputer\HostComputerSerialCommunication"
+
+## 串口调试助手 - ADC 数据进度条显示
+
+- GroupBox 可以设置显示隐藏
+  - groupBox2.Visible = true;
+- Form 可以设置 Size，改变大小
+  - this.Size = new Size(620, 117);
+- ProcessBar 可以设置最大值最小值，value 显示比例
+  - Maximum； Minimum；
+- this 关键字，是一个 Form1 类，表示是 Form1 窗体。可以设置 Form1 属性
+
+- 程序代码："..\HostComputer\HostComputer-ADCProgressBar"
+
