@@ -147,4 +147,20 @@
 
 - 程序代码："..\HostComputer\HostComputer-ADCProgressBar-10"
 
+## 串口调试助手 - 类的介绍
+
+- 官方教学网站，介绍类的用法  http://msdn.microsoft.com
+- "类库" 的使用
+- 封装成 dll 使用，动态链接库
+
+在控制台程序中调用窗体对话框
+
+- 控制台程序应该选择 "控制台应用（.NET Framework）" 
+  - 在VS中 -- 右击工程 -- 添加 -- 窗体
+- 以对话框的方式打开窗体
+  - form.ShowDialog();   // 阻塞主进程
+  - form.Show();  // 只是显示窗体，但是不阻塞主进程，无法操作窗体
+
+- 程序代码："..\HostComputer\HostComputer-ConsoleApp-Form"
+
 
