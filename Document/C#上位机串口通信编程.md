@@ -163,4 +163,51 @@
 
 - 程序代码："..\HostComputer\HostComputer-ConsoleApp-Form"
 
+## 串口调试助手 - 绘制曲线，线程间访问-委托
+
+子窗体修改父窗体控件，要用委托
+
+- Form1 访问 Form2 的控件，可以声明一个全局 Form2 对象；Form1 调用 Form2 的 public 函数，修改 Form2 属性。
+- 但是，Form2 由 Form1 创建，Form2 想修改 Form1 窗体的控件，必须用委托
+  - https://blog.csdn.net/qq_16504163/article/details/104244722
+
+不同线程间访问 UI 控件，要用委托
+
+- 注意：全局变量在不同的线程间是可以访问的。线程只是不能访问 UI 控件而已。
+- 创建线程后，访问 UI 控件，要用委托
+  - 委托有两种方法：
+    - 委托五步法（基础调用）
+    - 用 Action 调用，更简单
+- 参考网址: https://blog.csdn.net/sinat_40003796/article/details/126246744
+
+在窗体绘制图形
+
+- 通过按键触发绘制不同的图形
+  - 参考网址：https://www.cnblogs.com/zyadmin/p/8405974.html
+- 使用 Form3_Paint 绘制图形
+  - 参考网址：https://blog.csdn.net/m0_65636467/article/details/129133811
+
+双缓冲器和按键检测
+
+- 可以避免图形 Invalidate(); // 刷新显示 的时候闪屏
+
+C# WinForm 软件发布
+
+- 1、修改解决方案配置为 Release；
+- 2、右击Winform项目 → 生成。
+- 注：选择Debug同样也会生成项目文件，但生成的是没优化的代码。
+  - Debug (调试)：不进行优化，便于程序员调试应用程序。
+  - Release (发布)：进行完全优化，减少代码大小，提高运行速度。
+
+打包发布 exe 文件常见的问题。
+
+- 注意：打包的常见问题
+  - 1、异常处理不完善。
+    - 比如，没有串口设备，却访问串口，就会提示异常，但是可以继续运行。
+  - 2、.dll 动态链接库缺少，程序中引用了某些库，但是没有放到 exe 文件的目录下。
+    - 比如，.NET 框架不支持。使用 VS 开发，默认用的是 .NET 框架支持的。某些系统没有 .NET 框架，需要外部下载。一般的 WIN7，WIN10，WIN11 系统自带 .NET 框架的
+
+- 程序代码："..\HostComputer\HostComputer-SerialComm-DrawLine"
+
+
 
